@@ -1,0 +1,10 @@
+﻿@* typeof(BlazingBudget.Client._Imports).Assembly, *@
+<Router AppAssembly="@typeof(Program).Assembly" AdditionalAssemblies="new[]
+    {
+        typeof(BlazingBudget.Client.Components._Imports).Assembly
+    }">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(Components.Layouts.MainLayout)" />
+        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+    </Found>
+</Router>
