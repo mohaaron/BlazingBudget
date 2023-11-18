@@ -1,21 +1,17 @@
-﻿using Ardalis.GuardClauses;
+﻿using CSharpFunctionalExtensions;
 using BlazingBudget.Domain.Common;
-using CSharpFunctionalExtensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace BlazingBudget.Domain.ValueObjects
 {
     public class Email : ValueObject
     {
+        public string Value { get; private set; }
+
         public const int MaxLength = 256;
 
-        public string Value { get; }
+        private Email() { }
 
+        [JsonConstructor]
         private Email(string value)
         {
             Value = value;

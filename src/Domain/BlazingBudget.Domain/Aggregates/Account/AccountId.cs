@@ -15,9 +15,15 @@ namespace BlazingBudget.Domain.Aggregates.Account
     /// <param name="Value"></param>
     public struct AccountId : IEquatable<AccountId> //: IEntityId<Guid>;
     {
-        public AccountId(Guid value)
+        [JsonConstructor]
+        private AccountId(Guid value)
         {
             Value = value;
+        }
+
+        public static AccountId Create()
+        {
+            return new AccountId(Guid.NewGuid());
         }
 
         public Guid Value { get; }

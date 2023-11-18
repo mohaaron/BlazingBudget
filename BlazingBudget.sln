@@ -35,6 +35,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingBudget.Client", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingBudget.Client.Components", "src\Web\WebUI\BlazingBudget.Client.Components\BlazingBudget.Client.Components.csproj", "{96FD8416-ED7C-4396-9EBD-25BCF4FD9B2E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazingBudget.Domain.Tests", "tests\BlazingBudget.Domain.Tests\BlazingBudget.Domain.Tests.csproj", "{B3996515-77AA-40A6-880B-4AD4E3F654F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,10 @@ Global
 		{96FD8416-ED7C-4396-9EBD-25BCF4FD9B2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96FD8416-ED7C-4396-9EBD-25BCF4FD9B2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96FD8416-ED7C-4396-9EBD-25BCF4FD9B2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3996515-77AA-40A6-880B-4AD4E3F654F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3996515-77AA-40A6-880B-4AD4E3F654F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3996515-77AA-40A6-880B-4AD4E3F654F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3996515-77AA-40A6-880B-4AD4E3F654F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,6 +98,7 @@ Global
 		{9DA425C6-8092-4EEF-9126-D84AE3522EDB} = {9350A190-D7B8-4362-B61F-43CC26452161}
 		{768C2C0A-6199-4508-9A43-DE959686CAA6} = {9350A190-D7B8-4362-B61F-43CC26452161}
 		{96FD8416-ED7C-4396-9EBD-25BCF4FD9B2E} = {9350A190-D7B8-4362-B61F-43CC26452161}
+		{B3996515-77AA-40A6-880B-4AD4E3F654F4} = {EE793B63-CED6-48DA-9B2F-91D925E58EB0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D0123188-EF59-42A0-BC34-E61BC01485C7}
