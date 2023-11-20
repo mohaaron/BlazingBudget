@@ -4,10 +4,10 @@ using System.Text.Json;
 
 namespace BlazingBudget.Domain.Tests
 {
-    public class UnitTest1
+    public class AccountTests
     {
         [Fact]
-        public void Test1()
+        public void Serializes_Account_Aggregate_Successfully()
         {
             var id = AccountId.Create();
             var idSerialized = JsonSerializer.Serialize(id);

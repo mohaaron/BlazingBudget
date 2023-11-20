@@ -35,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingBudget.Client", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingBudget.Client.Components", "src\Web\WebUI\BlazingBudget.Client.Components\BlazingBudget.Client.Components.csproj", "{96FD8416-ED7C-4396-9EBD-25BCF4FD9B2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazingBudget.Domain.Tests", "tests\BlazingBudget.Domain.Tests\BlazingBudget.Domain.Tests.csproj", "{B3996515-77AA-40A6-880B-4AD4E3F654F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingBudget.Domain.Tests", "tests\BlazingBudget.Domain.Tests\BlazingBudget.Domain.Tests.csproj", "{B3996515-77AA-40A6-880B-4AD4E3F654F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
