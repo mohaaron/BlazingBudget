@@ -32,8 +32,6 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(
-        typeof(BlazingBudget.Client._Imports).Assembly,
-        typeof(BlazingBudget.Client.Components._Imports).Assembly);
+    .AddAdditionalAssemblies(typeof(BlazingBudget.Client.Components._Imports).Assembly);
 
 app.Run();
