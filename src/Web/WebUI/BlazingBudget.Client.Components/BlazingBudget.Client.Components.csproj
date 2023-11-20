@@ -6,6 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+	<!--<PropertyGroup>
+		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+		<CompilerGeneratedFilesOutputPath>.</CompilerGeneratedFilesOutputPath>
+	</PropertyGroup>-->
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />
