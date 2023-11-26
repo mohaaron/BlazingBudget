@@ -19,7 +19,7 @@ namespace BlazingBudget.Domain.Services
 
         public Money ExchangeToCurrency(Money amount, Currency currency)
         {
-            return new Money(amount.Value, currency);
+            return Money.Create(amount.Value).Value;
         }
     }
 }

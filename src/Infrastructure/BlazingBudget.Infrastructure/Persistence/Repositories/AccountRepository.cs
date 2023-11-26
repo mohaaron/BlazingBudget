@@ -1,4 +1,6 @@
 ﻿using BlazingBudget.Domain.Aggregates.Account;
+using BlazingBudget.Infrastructure.Persistence.DbContexts;
+using CSharpFunctionalExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,18 +9,25 @@ using System.Threading.Tasks;
 
 namespace BlazingBudget.Infrastructure.Persistence.Repositories
 {
-    public sealed class AccountRepository : IAccountRepository
+    internal sealed class AccountRepository : IAccountRepository
     {
-        public Task<bool> IsExistingAccountAsync(Account account)
-        {
-            // var currentAccount = await context.FindAsync(account.Id);
+        private readonly BudgetContext context;
 
-            if (account.Id == account.Id)
+        public AccountRepository(BudgetContext context)
+        {
+            this.context = context ?? throw new ArgumentNullException(nameof(context));
+        }
+
+        public async Task<IResult<bool>> IsExistingAccountAsync(Account account)
+        {
+            var currentAccount = await context.FindAsync<Account>(account.Id.Value);
+
+            if (currentAccount == null)
             {
-                return Task.FromResult(true);
+                return Result.Failure<bool>("Account already exists.");
             }
 
-            return Task.FromResult(false);
+            return Result.Success(true);
         }
     }
 }

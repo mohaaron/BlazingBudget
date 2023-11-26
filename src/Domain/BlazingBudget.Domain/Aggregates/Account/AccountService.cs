@@ -1,9 +1,4 @@
 ﻿using CSharpFunctionalExtensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BlazingBudget.Domain.Aggregates.Account
 {
@@ -18,8 +13,8 @@ namespace BlazingBudget.Domain.Aggregates.Account
 
         public async Task<IResult<bool>> CanCreateAccount(Account account)
         {
-            // Check db that account doesn't already exist.
-            if (await _accountRepository.IsExistingAccountAsync(account))
+            var accountExistsResult = await _accountRepository.IsExistingAccountAsync(account);
+            if (accountExistsResult.Value)
             {
                 return AccountResults.AccountExists;
             }

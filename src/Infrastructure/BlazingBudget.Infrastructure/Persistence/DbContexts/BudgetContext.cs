@@ -1,21 +1,18 @@
-﻿using BlazingBudget.Domain.Aggregates.Budget;
+﻿using BlazingBudget.Domain.Aggregates.Account;
+using BlazingBudget.Domain.Aggregates.Budget;
 using BlazingBudget.Domain.ValueConverters;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BlazingBudget.Infrastructure.Persistence.DbContexts
 {
-    public sealed class BudgetContext : DbContext, IBudgetContext
+    internal sealed class BudgetContext : DbContext, IBudgetContext
     {
         protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
         {
             configurationBuilder.Properties<BudgetId>().HaveConversion<BudgetIdConverter>();
         }
 
-        public DbSet<Budget> Budgets { get; set; }
+        internal DbSet<Account> Accounts { get; set; }
+        internal DbSet<Budget> Budgets { get; set; }
     }
 }

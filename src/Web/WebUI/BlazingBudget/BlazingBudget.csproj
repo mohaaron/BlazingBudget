@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Infrastructure\BlazingBudget.Infrastructure\BlazingBudget.Infrastructure.csproj" />
     <ProjectReference Include="..\BlazingBudget.Client\BlazingBudget.Client.csproj" />
   </ItemGroup>
 

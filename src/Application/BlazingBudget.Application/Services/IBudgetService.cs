@@ -1,4 +1,4 @@
-﻿namespace BlazingBudget.Application.Services.Interfaces
+﻿namespace BlazingBudget.Application.Services
 {
     public interface IBudgetService
     {

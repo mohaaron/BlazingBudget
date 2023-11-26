@@ -1,4 +1,5 @@
 ﻿using BlazingBudget.Infrastructure.Persistence.DbContexts;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,13 @@ namespace BlazingBudget.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
-            services.AddScoped<IBudgetContext, BudgetContext>();
+            services.AddDbContext<BudgetContext>(options =>
+            {
+                options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+                options.EnableDetailedErrors(true);
+            });
+
+            //services.AddScoped<IBudgetContext, BudgetContext>();
             return services;
         }
     }

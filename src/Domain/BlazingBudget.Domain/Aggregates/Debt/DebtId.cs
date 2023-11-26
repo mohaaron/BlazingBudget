@@ -1,17 +1,18 @@
 ﻿using StronglyTypedIds;
 
-[assembly: StronglyTypedIdDefaults(converters:
-    StronglyTypedIdConverter.TypeConverter
-    | StronglyTypedIdConverter.SystemTextJson
-    //| StronglyTypedIdConverter.EfCoreValueConverter
-)]
+// TODO: Not working...
+//[assembly: StronglyTypedIdDefaults(converters:
+//    StronglyTypedIdConverter.TypeConverter
+//    | StronglyTypedIdConverter.SystemTextJson
+////| StronglyTypedIdConverter.EfCoreValueConverter
+//)]
 
 namespace BlazingBudget.Domain.Aggregates.Debt
 {
-    [StronglyTypedId(converters: 
+    [StronglyTypedId(converters:
         StronglyTypedIdConverter.TypeConverter
         | StronglyTypedIdConverter.SystemTextJson
-        //| StronglyTypedIdConverter.EfCoreValueConverter
+    //| StronglyTypedIdConverter.EfCoreValueConverter
     )]
     public partial struct DebtId { }
 }

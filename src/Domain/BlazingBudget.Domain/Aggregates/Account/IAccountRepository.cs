@@ -1,4 +1,5 @@
 ﻿using BlazingBudget.Domain.ValueObjects;
+using CSharpFunctionalExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace BlazingBudget.Domain.Aggregates.Account
 {
     public interface IAccountRepository
     {
-        Task<bool> IsExistingAccountAsync(Account account);
+        Task<IResult<bool>> IsExistingAccountAsync(Account account);
     }
 }

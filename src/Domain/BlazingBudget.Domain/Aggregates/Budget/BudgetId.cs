@@ -11,5 +11,5 @@ namespace BlazingBudget.Domain.Aggregates.Budget
     /// BudgetId 
     /// </summary>
     /// <param name="Value"></param>
-    public record BudgetId(Guid Value) : IEntityId<Guid>;
+    public record struct BudgetId(Guid Value) : IEntityId<Guid>;
 }

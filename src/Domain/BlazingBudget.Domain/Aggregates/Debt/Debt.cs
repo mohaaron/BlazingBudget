@@ -10,32 +10,33 @@ namespace BlazingBudget.Domain.Aggregates.Debt
     {
         private Debt() { }
 
-        private Debt(DebtId id, string name, Money amountOwed)
+        [JsonConstructor]
+        private Debt(DebtId id, string name, Money total)
         {
             Id = id;
             Name = name;
-            AmountOwed = amountOwed;
+            Total = total;
 
             //DomainEvents.Add(new DebtCreatedEvent())
         }
 
-        public static IResult<Debt> Create(string name, Money amountOwed)
+        public static IResult<Debt> Create(string name, Money total)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
                 return Result.Failure<Debt>("Name cannot be empty");
             }
 
-            return Result.Success(new Debt(DebtId.New(), name, amountOwed));
+            return Result.Success(new Debt(DebtId.New(), name, total));
         }
 
         public string Name { get; private set; }
 
-        public Money AmountOwed { get; }
+        public Money Total { get; }
 
-        public Money AmountPaid => new Money(payments.Sum(pmd => pmd.Amount.Value));
+        public Amount AmountPaid => Amount.Create(payments.Sum(paid => paid.Amount.Value)).Value;
 
-        public Money AmountToPayOff => new Money(AmountOwed.Value - AmountPaid.Value);
+        public Amount AmountOwed => Amount.Create(Total.Value - AmountPaid.Value).Value;
 
         public IReadOnlyCollection<Payment> Payments => payments;
 

@@ -12,7 +12,6 @@
     <Folder Include="Dashboard\Commands\" />
     <Folder Include="Dashboard\Queries\" />
     <Folder Include="Models\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>

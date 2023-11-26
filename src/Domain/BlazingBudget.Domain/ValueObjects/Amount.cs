@@ -8,16 +8,14 @@ namespace BlazingBudget.Domain.ValueObjects
     /// The money type should be used for any monetary value needed.
     /// This type enforces that a money value cannot be zero.
     /// </summary>
-    public class Money : Abp.Domain.Values.ValueObject
+    public class Amount : Abp.Domain.Values.ValueObject
     {
-        public Money() { }
+        public Amount() { }
 
         [JsonConstructor]
-        private Money(decimal value)
+        private Amount(decimal value)
         {
             Value = value;
-
-            // Value = Guard.Against.NegativeOrZero(amount, nameof(amount), "An amount must be larger than zero.");
 
             //Money left = new Money(amount);
             //Money right = new Money(amount);
@@ -26,18 +24,18 @@ namespace BlazingBudget.Domain.ValueObjects
 
         //private Money(decimal amount, Currency currency)
         //{
-        //    Value = Guard.Against.NegativeOrZero(amount, nameof(amount), "An amount must be larger than zero.");
+        //    Value = amount;
         //    Currency = currency;
         //}
 
-        public static IResult<Money> Create(decimal amount)
+        public static IResult<Amount> Create(decimal amount)
         {
-            if (amount <= 0)
+            if (amount < 0)
             {
-                return Result.Failure<Money>("An amount must be larger than zero.");
+                return Result.Failure<Amount>("An amount paid can not be negative.");
             }
 
-            return Result.Success(new Money(amount));
+            return Result.Success(new Amount(amount));
         }
 
         public decimal Value { get; private set; }
@@ -49,7 +47,7 @@ namespace BlazingBudget.Domain.ValueObjects
             Currency = currency;
         }
 
-        public static decimal operator -(Money left, Money right)
+        public static decimal operator -(Amount left, Amount right)
         {
             return left.Value - right.Value;
         }
