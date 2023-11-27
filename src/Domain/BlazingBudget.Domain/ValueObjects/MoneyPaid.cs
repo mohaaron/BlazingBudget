@@ -5,33 +5,32 @@ using CSharpFunctionalExtensions;
 namespace BlazingBudget.Domain.ValueObjects
 {
     /// <summary>
-    /// The money type should be used for any monetary value needed.
-    /// This type enforces that a money value cannot be zero.
+    /// Money paid is an amount of money paid.
     /// </summary>
-    public class Money : Abp.Domain.Values.ValueObject
+    public class MoneyPaid : Abp.Domain.Values.ValueObject
     {
-        public Money() { }
+        public MoneyPaid() { }
 
         [JsonConstructor]
-        private Money(decimal value)
+        private MoneyPaid(decimal value)
         {
             Value = value;
         }
 
-        private Money(decimal amount, Currency currency)
+        private MoneyPaid(decimal amount, Currency currency)
         {
             Value = amount;
             Currency = currency;
         }
 
-        public static IResult<Money> Create(decimal amount)
+        public static IResult<MoneyPaid> Create(decimal amount)
         {
-            if (amount <= 0)
+            if (amount < 0)
             {
-                return Result.Failure<Money>("An amount must be larger than zero.");
+                return Result.Failure<MoneyPaid>("An amount paid can not be negative.");
             }
 
-            return Result.Success(new Money(amount));
+            return Result.Success(new MoneyPaid(amount));
         }
 
         public decimal Value { get; private set; }
@@ -43,7 +42,7 @@ namespace BlazingBudget.Domain.ValueObjects
             Currency = currency;
         }
 
-        public static decimal operator -(Money left, Money right)
+        public static decimal operator -(MoneyPaid left, MoneyPaid right)
         {
             return left.Value - right.Value;
         }

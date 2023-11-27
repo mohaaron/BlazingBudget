@@ -34,10 +34,19 @@ namespace BlazingBudget.Domain.Aggregates.Debt
 
         public Money Total { get; }
 
-        public Amount AmountPaid => Amount.Create(payments.Sum(paid => paid.Amount.Value)).Value;
+        /// <summary>
+        /// Amount paid is the sum of all payments. Defaults to zero.
+        /// </summary>
+        public MoneyPaid AmountPaid => MoneyPaid.Create(payments.Sum(paid => paid.Amount.Value)).Value;
 
-        public Amount AmountOwed => Amount.Create(Total.Value - AmountPaid.Value).Value;
+        /// <summary>
+        /// Amount still owed on this debt is the total debt minus the amount paid.
+        /// </summary>
+        public MoneyOwed AmountOwed => MoneyOwed.Create(Total.Value - AmountPaid.Value).Value;
 
+        /// <summary>
+        /// TODO: Change to DebtPayment
+        /// </summary>
         public IReadOnlyCollection<Payment> Payments => payments;
 
         private HashSet<Payment> payments { get; set; } = new HashSet<Payment>();

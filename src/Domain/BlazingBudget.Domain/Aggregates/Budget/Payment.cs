@@ -9,6 +9,7 @@ namespace BlazingBudget.Domain.Aggregates.Budget
     {
         private Payment() { }
 
+        [JsonConstructor]
         private Payment(PaymentId id, Money amount, string notes)
         {
             Id = id;

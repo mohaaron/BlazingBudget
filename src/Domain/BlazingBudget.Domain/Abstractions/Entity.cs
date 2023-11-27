@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlazingBudget.Domain.Shared
 {
-    public abstract class Entity<TEntityId> : Abp.Domain.Entities.Entity<TEntityId> where TEntityId : class
+    public abstract class Entity<TEntityId> : Abp.Domain.Entities.Entity<TEntityId> where TEntityId : struct
     {
         public DateTime CreatedOn { get; protected set; }
         public DateTime UpdatedOn { get; protected set; }

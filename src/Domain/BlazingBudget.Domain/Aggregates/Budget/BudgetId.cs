@@ -1,4 +1,5 @@
 ﻿using BlazingBudget.Domain.Shared;
+using StronglyTypedIds;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,6 @@ using System.Threading.Tasks;
 
 namespace BlazingBudget.Domain.Aggregates.Budget
 {
-    /// <summary>
-    /// BudgetId 
-    /// </summary>
-    /// <param name="Value"></param>
-    public record struct BudgetId(Guid Value) : IEntityId<Guid>;
+    [StronglyTypedId]
+    public partial struct BudgetId { }
 }

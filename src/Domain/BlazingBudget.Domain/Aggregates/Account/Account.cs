@@ -25,10 +25,7 @@ namespace BlazingBudget.Domain.Aggregates.Account
         {
             Id = id;
             Name = name;
-
-            // new AccountService().CanCreateAccount(this);
             Email = email; // TODO: How does this rule get enforced?
-
             Password = password;
 
             //DomainEvents.Add(new AccountCreatedEvent(Id)); // Not yet implemented

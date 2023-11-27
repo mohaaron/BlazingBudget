@@ -1,4 +1,6 @@
-﻿using BlazingBudget.Infrastructure.Persistence.DbContexts;
+﻿using BlazingBudget.Domain.Aggregates.Account;
+using BlazingBudget.Infrastructure.Persistence.DbContexts;
+using BlazingBudget.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -19,7 +21,8 @@ namespace BlazingBudget.Infrastructure
                 options.EnableDetailedErrors(true);
             });
 
-            //services.AddScoped<IBudgetContext, BudgetContext>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
+
             return services;
         }
     }

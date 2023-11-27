@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using StronglyTypedIds;
 
 namespace BlazingBudget.Domain.Aggregates.Budget
 {
-    public record IncomeId(Guid Value) : IEntityId<Guid>;
+    [StronglyTypedId]
+    public partial struct IncomeId { }
 }

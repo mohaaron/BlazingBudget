@@ -9,10 +9,6 @@
 
 namespace BlazingBudget.Domain.Aggregates.Debt
 {
-    [StronglyTypedId(converters:
-        StronglyTypedIdConverter.TypeConverter
-        | StronglyTypedIdConverter.SystemTextJson
-    //| StronglyTypedIdConverter.EfCoreValueConverter
-    )]
+    [StronglyTypedId]
     public partial struct DebtId { }
 }
