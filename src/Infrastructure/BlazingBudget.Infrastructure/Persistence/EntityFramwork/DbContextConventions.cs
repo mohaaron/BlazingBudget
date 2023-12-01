@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlazingBudget.Infrastructure.Persistence.DbContexts
+namespace BlazingBudget.Infrastructure.Persistence.EntityFramework
 {
     // https://github.com/andrewlock/StronglyTypedId/issues/97#issuecomment-1807079753
     internal class DbContextConventions : DbContext

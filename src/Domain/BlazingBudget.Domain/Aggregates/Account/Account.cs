@@ -1,6 +1,7 @@
 ﻿using Abp.Domain.Entities;
 using Ardalis.GuardClauses;
 using BlazingBudget.Domain.ValueObjects;
+using CSharpFunctionalExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,15 +26,15 @@ namespace BlazingBudget.Domain.Aggregates.Account
         {
             Id = id;
             Name = name;
-            Email = email; // TODO: How does this rule get enforced?
+            Email = email;
             Password = password;
 
             //DomainEvents.Add(new AccountCreatedEvent(Id)); // Not yet implemented
         }
 
-        public static Account Create(PersonName name, Email email, Password password)
+        public static IResult<Account> Create(PersonName name, Email email, Password password)
         {
-            return new Account(AccountId.Create(), name, email, password);
+            return Result.Success(new Account(AccountId.Create(), name, email, password));
         }
     }
 }
