@@ -1,5 +1,6 @@
 using BlazingBudget.Domain.Aggregates.Account;
 using BlazingBudget.Domain.ValueObjects;
+using CSharpFunctionalExtensions;
 using System.Text.Json;
 
 namespace BlazingBudget.Domain.Tests
@@ -25,8 +26,9 @@ namespace BlazingBudget.Domain.Tests
             var passwordSerialized = JsonSerializer.Serialize(password.Value);
             var passwordDeserialized = JsonSerializer.Deserialize<Password>(passwordSerialized);
 
-            Account actualAccount = Account.Create(name.Value, email.Value, password.Value);
-            
+            IResult<Account> actualAccountResult = Account.Create(name.Value, email.Value, password.Value);
+            Account actualAccount = actualAccountResult.Value;
+
             var serialized = JsonSerializer.Serialize(actualAccount);
             var expectedAccount = JsonSerializer.Deserialize<Account>(serialized);
 

@@ -1,5 +1,5 @@
 ﻿using BlazingBudget.Domain.Aggregates.Account;
-using BlazingBudget.Infrastructure.Persistence.DbContexts;
+using BlazingBudget.Infrastructure.Persistence.EntityFramework;
 using BlazingBudget.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
