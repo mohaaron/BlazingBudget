@@ -11,11 +11,11 @@
     <Folder Include="Account\Queries\" />
     <Folder Include="Dashboard\Commands\" />
     <Folder Include="Dashboard\Queries\" />
-    <Folder Include="Models\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.8.0" />
+    <PackageReference Include="Mapster" Version="7.4.1-pre01" />
   </ItemGroup>
 
   <ItemGroup>

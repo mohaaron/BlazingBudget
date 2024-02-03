@@ -15,7 +15,7 @@ namespace BlazingBudget.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
-            services.AddDbContext<BudgetContext>(options =>
+            services.AddDbContextFactory<BudgetContext>(options =>
             {
                 options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
                 options.EnableDetailedErrors(true);

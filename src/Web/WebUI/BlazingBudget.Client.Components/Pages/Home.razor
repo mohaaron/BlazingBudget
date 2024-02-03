@@ -4,4 +4,32 @@
 
 <h1>Hello, world!</h1>
 
-Welcome to your new app.
+<p>Welcome to your new app.</p>
+
+<p>Go check out your montly budget @link("here!")</p>
+
+@code
+{
+    private RenderFragment link (string text) => builder =>
+        {
+            int index = 0;
+            builder.OpenElement(index++, "a");
+            builder.AddAttribute(index++, "href", "");
+            // builder.AddAttribute(index++, "onclick", "preventDefault");
+            builder.AddEventPreventDefaultAttribute(index++, "onclick", true);
+            builder.AddAttribute(index++, "onclick", EventCallback.Factory.Create(this, () => ShowMessage()));
+            builder.AddContent(index++, text);
+            builder.CloseElement();
+        };
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+    }
+
+
+    private void ShowMessage()
+    {
+        Console.WriteLine("Link clicked!");
+    }
+}
