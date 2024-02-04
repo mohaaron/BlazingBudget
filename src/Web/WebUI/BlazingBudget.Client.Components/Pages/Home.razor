@@ -6,7 +6,9 @@
 
 <p>Welcome to your new app.</p>
 
-<p>Go check out your montly budget @link("here!")</p>
+<p>Go check out your montly budget @link("here now!")</p>
+
+<p>What a few seconds and watch this sentence disappear <a href="javascript:void(0);" @onclick="ShowMessage">link</a>. It's because the .wasm files are being cached and an old cached file is loaded that doesn't have this text.</p>
 
 @code
 {
@@ -15,7 +17,6 @@
             int index = 0;
             builder.OpenElement(index++, "a");
             builder.AddAttribute(index++, "href", "");
-            // builder.AddAttribute(index++, "onclick", "preventDefault");
             builder.AddEventPreventDefaultAttribute(index++, "onclick", true);
             builder.AddAttribute(index++, "onclick", EventCallback.Factory.Create(this, () => ShowMessage()));
             builder.AddContent(index++, text);
