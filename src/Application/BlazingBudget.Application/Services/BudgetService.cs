@@ -1,7 +1,7 @@
 ﻿using BlazingBudget.Application.Models;
-using BlazingBudget.Domain.Aggregates.Account;
+using BlazingBudget.Domain.Aggregates.Accounts;
 using Mapster;
-using Aggregate = BlazingBudget.Domain.Aggregates.Budget.Budget;
+using Aggregate = BlazingBudget.Domain.Aggregates.Budgets.Budget;
 
 namespace BlazingBudget.Application.Services
 {

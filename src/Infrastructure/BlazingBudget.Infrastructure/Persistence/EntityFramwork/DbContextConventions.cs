@@ -1,4 +1,4 @@
-﻿using BlazingBudget.Domain.Aggregates.Debt;
+﻿using BlazingBudget.Domain.Aggregates.Debts;
 using BlazingBudget.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using System;

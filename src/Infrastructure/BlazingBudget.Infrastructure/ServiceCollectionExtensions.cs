@@ -1,4 +1,4 @@
-﻿using BlazingBudget.Domain.Aggregates.Account;
+﻿using BlazingBudget.Domain.Aggregates.Accounts;
 using BlazingBudget.Infrastructure.Persistence.EntityFramework;
 using BlazingBudget.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;

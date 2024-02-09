@@ -1,4 +1,4 @@
-﻿using BlazingBudget.Domain.Aggregates.Budget;
+﻿using BlazingBudget.Domain.Aggregates.Budgets;
 using CSharpFunctionalExtensions;
 using System;
 using System.Collections.Generic;

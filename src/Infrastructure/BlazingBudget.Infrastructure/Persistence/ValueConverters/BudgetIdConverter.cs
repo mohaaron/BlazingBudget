@@ -1,4 +1,4 @@
-﻿using BlazingBudget.Domain.Aggregates.Budget;
+﻿using BlazingBudget.Domain.Aggregates.Budgets;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BlazingBudget.Domain.ValueConverters

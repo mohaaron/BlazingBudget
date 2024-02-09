@@ -1,5 +1,5 @@
-﻿using BlazingBudget.Domain.Aggregates.Account;
-using BlazingBudget.Domain.Aggregates.Budget;
+﻿using BlazingBudget.Domain.Aggregates.Accounts;
+using BlazingBudget.Domain.Aggregates.Budgets;
 using BlazingBudget.Domain.ValueConverters;
 using Microsoft.EntityFrameworkCore;
 

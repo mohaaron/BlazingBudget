@@ -1,5 +1,5 @@
-using BlazingBudget.Domain.Aggregates.Account;
-using BlazingBudget.Domain.Aggregates.Debt;
+using BlazingBudget.Domain.Aggregates.Accounts;
+using BlazingBudget.Domain.Aggregates.Debts;
 using BlazingBudget.Domain.ValueObjects;
 using System.Text.Json;
 

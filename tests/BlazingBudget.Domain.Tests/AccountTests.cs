@@ -1,4 +1,4 @@
-using BlazingBudget.Domain.Aggregates.Account;
+using BlazingBudget.Domain.Aggregates.Accounts;
 using BlazingBudget.Domain.ValueObjects;
 using CSharpFunctionalExtensions;
 using System.Text.Json;

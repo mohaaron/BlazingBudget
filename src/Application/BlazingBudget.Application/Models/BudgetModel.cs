@@ -1,7 +1,6 @@
-﻿using BlazingBudget.Domain.Aggregates.Account;
-using BlazingBudget.Domain.Aggregates.Budget;
+﻿using BlazingBudget.Domain.Aggregates.Accounts;
+using BlazingBudget.Domain.Aggregates.Budgets;
 using Mapster;
-using Aggregate = BlazingBudget.Domain.Aggregates.Budget.Budget;
 
 namespace BlazingBudget.Application.Models
 {
@@ -9,17 +8,12 @@ namespace BlazingBudget.Application.Models
     {
         public BudgetId Id { get; set; }
         public AccountId AccountId { get; set; }
-        public string BudgetName { get; set; }
+        public required string Name { get; set; }
         public DateOnly Month {  get; set; }
 
-        public static BudgetModel ToModel(Aggregate aggregate)
+        public static BudgetModel ToModel(Budget budget)
         {
-            return aggregate.Adapt<BudgetModel>();
-        }
-
-        public static Aggregate ToAggregate(BudgetModel model)
-        {
-            return model.Adapt<Aggregate>();
+            return budget.Adapt<BudgetModel>();
         }
     }
 }
