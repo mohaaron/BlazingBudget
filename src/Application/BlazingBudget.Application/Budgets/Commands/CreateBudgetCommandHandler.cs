@@ -16,6 +16,8 @@ namespace BlazingBudget.Application.Budgets.Commands
         //[UnitOfWork] // From Abp library
         public Task Handle(CreateBudgetCommand request)
         {
+            // TODO: Use Domain models for write only dbcontext
+
             // var aggregate = await repository.Get(model.Id);
             Budget budget = Budget.Create(AccountId.Create(), "My new budget", new DateOnly(2024, 1, 1));
             

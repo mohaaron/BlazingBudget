@@ -20,11 +20,11 @@ namespace BlazingBudget.Domain.Aggregates.Debts
             //DomainEvents.Add(new DebtCreatedEvent())
         }
 
-        public static IResult<Debt> Create(string name, Money total)
+        public static Result<Debt> Create(string name, Money total)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
-                return Result.Failure<Debt>("Name cannot be empty");
+                return Result.Failure<Debt>($"[{nameof(Debt)}] Name cannot be empty");
             }
 
             return Result.Success(new Debt(DebtId.New(), name, total));

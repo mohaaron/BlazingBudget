@@ -14,7 +14,7 @@ namespace BlazingBudget.Domain.ValueObjects
             Value = value;
         }
 
-        public static IResult<Password> Create(string value)
+        public static Result<Password> Create(string value)
         {
             if (Regex.Match(value, "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})").Success == false)
             {

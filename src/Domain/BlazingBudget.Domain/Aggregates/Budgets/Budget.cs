@@ -16,7 +16,7 @@ namespace BlazingBudget.Domain.Aggregates.Budgets
             AccountId = accountId;
 
             // Also must not already exist
-            BudgetName = Check.NotNullOrWhiteSpace(name, nameof(name));
+            Name = Check.NotNullOrWhiteSpace(name, nameof(name));
 
             // Also must not already exist
             Month = Guard.Against.InvalidInput(month, nameof(month),
@@ -24,13 +24,11 @@ namespace BlazingBudget.Domain.Aggregates.Budgets
         }
 
         public static Budget Create(AccountId accountId, string name, DateOnly month)
-        {
-            return new(BudgetId.New(), accountId, name, month);
-        }
+            => new(BudgetId.New(), accountId, name, month);
 
         public AccountId AccountId { get; private set; }
 
-        public string BudgetName { get; private set; }
+        public string Name { get; private set; }
 
         public DateOnly Month { get; private set; }
 

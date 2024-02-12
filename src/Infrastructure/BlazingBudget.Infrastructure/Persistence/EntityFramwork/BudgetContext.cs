@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BlazingBudget.Infrastructure.Persistence.EntityFramework
 {
+    // TODO: Make two contexts, one for write only and one for read only
     internal sealed class BudgetContext : DbContext//, IBudgetContext
     {
         protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)

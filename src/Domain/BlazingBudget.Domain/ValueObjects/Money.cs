@@ -24,11 +24,11 @@ namespace BlazingBudget.Domain.ValueObjects
             Currency = currency;
         }
 
-        public static IResult<Money> Create(decimal amount)
+        public static Result<Money> Create(decimal amount)
         {
             if (amount <= 0)
             {
-                return Result.Failure<Money>("An amount must be larger than zero.");
+                return Result.Failure<Money>($"[{nameof(Money)}] An amount must be larger than zero.");
             }
 
             return Result.Success(new Money(amount));

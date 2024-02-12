@@ -18,7 +18,7 @@ namespace BlazingBudget.Infrastructure.Persistence.Repositories
             this.context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task<IResult<bool>> CanCreateAccount(Account account)
+        public async Task<Result<bool>> CanCreateAccount(Account account)
         {
             var currentAccount = await context.FindAsync<Account>(account.Id.Value);
 

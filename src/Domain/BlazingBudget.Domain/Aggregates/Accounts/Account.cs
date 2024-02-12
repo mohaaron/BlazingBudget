@@ -32,7 +32,7 @@ namespace BlazingBudget.Domain.Aggregates.Accounts
             //DomainEvents.Add(new AccountCreatedEvent(Id)); // Not yet implemented
         }
 
-        public static IResult<Account> Create(PersonName name, Email email, Password password)
+        public static Result<Account> Create(PersonName name, Email email, Password password)
         {
             return Result.Success(new Account(AccountId.Create(), name, email, password));
         }

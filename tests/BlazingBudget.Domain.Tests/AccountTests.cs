@@ -26,7 +26,7 @@ namespace BlazingBudget.Domain.Tests
             var passwordSerialized = JsonSerializer.Serialize(password.Value);
             var passwordDeserialized = JsonSerializer.Deserialize<Password>(passwordSerialized);
 
-            IResult<Account> actualAccountResult = Account.Create(name.Value, email.Value, password.Value);
+            Result<Account> actualAccountResult = Account.Create(name.Value, email.Value, password.Value);
             Account actualAccount = actualAccountResult.Value;
 
             var serialized = JsonSerializer.Serialize(actualAccount);

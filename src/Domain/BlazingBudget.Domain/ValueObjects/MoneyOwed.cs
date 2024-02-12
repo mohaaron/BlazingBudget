@@ -23,7 +23,7 @@ namespace BlazingBudget.Domain.ValueObjects
             Currency = currency;
         }
 
-        public static IResult<MoneyOwed> Create(decimal amount)
+        public static Result<MoneyOwed> Create(decimal amount)
         {
             if (amount < 0)
             {

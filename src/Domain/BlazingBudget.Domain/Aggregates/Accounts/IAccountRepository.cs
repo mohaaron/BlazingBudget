@@ -10,6 +10,6 @@ namespace BlazingBudget.Domain.Aggregates.Accounts
 {
     public interface IAccountRepository
     {
-        Task<IResult<bool>> CanCreateAccount(Account account);
+        Task<Result<bool>> CanCreateAccount(Account account);
     }
 }

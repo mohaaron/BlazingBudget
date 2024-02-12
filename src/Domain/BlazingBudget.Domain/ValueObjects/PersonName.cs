@@ -22,7 +22,7 @@ namespace BlazingBudget.Domain.ValueObjects
             LastName = lastName;
         }
 
-        public static IResult<PersonName> Create(string firstName, string lastName)
+        public static Result<PersonName> Create(string firstName, string lastName)
         {
             if (firstName == null || lastName == null)
             {

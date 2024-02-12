@@ -12,11 +12,11 @@ namespace BlazingBudget.Application.Tests
         [Fact]
         public void Map_From_Aggregate_To_Model_Successfully()
         {
-            var aggregate = Budget.Create(AccountId.Create(), "Budget Name", new DateOnly(2024, 1, 1));
-            aggregate.AddExpense(Expense.Create("Rent", Money.Create(1).Value));
-            aggregate.AddIncome(Income.Create("Salery", Money.Create(1).Value, new DateOnly(2024, 1, 1)));
+            Budget budget = Budget.Create(AccountId.Create(), "Budget Name", new DateOnly(2024, 1, 1));
+            budget.AddExpense(Expense.Create("Rent", Money.Create(1).Value));
+            budget.AddIncome(Income.Create("Salery", Money.Create(1).Value, new DateOnly(2024, 1, 1)));
 
-            var mappedModel = aggregate.Adapt<BudgetModel>();
+            var mappedModel = budget.Adapt<BudgetModel>();
         }
 
         [Fact]
@@ -30,11 +30,11 @@ namespace BlazingBudget.Application.Tests
                 Month = new DateOnly(2024, 1, 1)
             };
 
-            Aggregate aggregate = Aggregate.Create(model.AccountId, model.Name, model.Month);
-            aggregate.AddExpense(Expense.Create("Rent", Money.Create(1).Value));
-            aggregate.AddIncome(Income.Create("Salery", Money.Create(1).Value, new DateOnly(2024, 1, 1)));
+            Budget budget = Budget.Create(model.AccountId, model.Name, model.Month);
+            budget.AddExpense(Expense.Create("Rent", Money.Create(1).Value));
+            budget.AddIncome(Income.Create("Salery", Money.Create(1).Value, new DateOnly(2024, 1, 1)));
 
-            var mappedAggregate = model.Adapt<Aggregate>();
+            var mappedAggregate = model.Adapt<Budget>();
         }
     }
 }
