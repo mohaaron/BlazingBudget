@@ -11,7 +11,7 @@ namespace BlazingBudget.Domain.Aggregates.Accounts
             _accountRepository = accountRepository;
         }
 
-        public async Task<IResult<bool>> CanCreateAccount(Account account)
+        public async Task<Result<bool>> CanCreateAccount(Account account)
         {
             var accountExistsResult = await _accountRepository.CanCreateAccount(account);
             if (accountExistsResult.Value)

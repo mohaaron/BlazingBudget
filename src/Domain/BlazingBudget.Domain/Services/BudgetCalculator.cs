@@ -10,7 +10,7 @@ namespace BlazingBudget.Domain.Services
 {
     internal class BudgetCalculator
     {
-        public IResult<decimal> GetTotalExpenses(ICollection<Expense> expenses)
+        public Result<decimal> GetTotalExpenses(ICollection<Expense> expenses)
         {
             decimal total = expenses.Sum(e => e.Cost.Value);
             return Result.Success(total);
