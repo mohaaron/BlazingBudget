@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using BlazingBudget.Domain.Enums
 
 <PageTitle>Home</PageTitle>
 
@@ -6,31 +7,15 @@
 
 <p>Welcome to your new app.</p>
 
-<p>Go check out your montly budget @link("here now!")</p>
-
-<p>What a few seconds and watch this sentence disappear <a href="javascript:void(0);" @onclick="ShowMessage">link</a>. It's because the .wasm files are being cached and an old cached file is loaded that doesn't have this text.</p>
+@foreach(var creditCard in CreditCard.GetAll<CreditCard>())
+{
+    <div>@creditCard.Name</div>
+}
 
 @code
 {
-    private RenderFragment link (string text) => builder =>
-        {
-            int index = 0;
-            builder.OpenElement(index++, "a");
-            builder.AddAttribute(index++, "href", "");
-            builder.AddEventPreventDefaultAttribute(index++, "onclick", true);
-            builder.AddAttribute(index++, "onclick", EventCallback.Factory.Create(this, () => ShowMessage()));
-            builder.AddContent(index++, text);
-            builder.CloseElement();
-        };
-
     protected override void OnInitialized()
     {
         base.OnInitialized();
-    }
-
-
-    private void ShowMessage()
-    {
-        Console.WriteLine("Link clicked!");
     }
 }
