@@ -7,15 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="OperationResults\**" />
-    <EmbeddedResource Remove="OperationResults\**" />
-    <None Remove="OperationResults\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="EventHandlers\" />
-    <Folder Include="Events\" />
-    <Folder Include="Validators\" />
+    <Compile Remove="EventHandlers\**" />
+    <Compile Remove="Events\**" />
+    <Compile Remove="Validators\**" />
+    <EmbeddedResource Remove="EventHandlers\**" />
+    <EmbeddedResource Remove="Events\**" />
+    <EmbeddedResource Remove="Validators\**" />
+    <None Remove="EventHandlers\**" />
+    <None Remove="Events\**" />
+    <None Remove="Validators\**" />
   </ItemGroup>
 
   <ItemGroup>
