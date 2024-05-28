@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BlazingBudget.Domain.Enums;
+﻿namespace BlazingBudget.Domain.Enums;
 public abstract class CreditCard : Enumeration<CreditCard>
 {
     public static readonly CreditCard Discover = new DiscoverCard();
@@ -28,14 +22,14 @@ public abstract class CreditCard : Enumeration<CreditCard>
 
     private sealed class MastercardCard : CreditCard
     {
-        public MastercardCard() : base(1, "Mastercard") { }
+        public MastercardCard() : base(2, "Mastercard") { }
 
         public override double Discount => 0.10;
     }
 
     private sealed class VisaCard : CreditCard
     {
-        public VisaCard() : base(1, "Visa") { }
+        public VisaCard() : base(3, "Visa") { }
 
         public override double Discount => 0.10;
     }
