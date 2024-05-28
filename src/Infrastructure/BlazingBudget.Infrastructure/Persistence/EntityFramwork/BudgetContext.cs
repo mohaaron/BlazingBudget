@@ -1,5 +1,6 @@
 ﻿using BlazingBudget.Domain.Aggregates.Accounts;
 using BlazingBudget.Domain.Aggregates.Budgets;
+using BlazingBudget.Domain.Aggregates.Debts;
 using BlazingBudget.Domain.ValueConverters;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,9 +14,11 @@ namespace BlazingBudget.Infrastructure.Persistence.EntityFramework
             configurationBuilder.Properties<BudgetId>().HaveConversion<BudgetIdConverter>();
         }
 
-        internal DbSet<Account> Accounts { get; set; }
-        internal DbSet<Budget> Budgets { get; set; }
-        //DbSet<Account> IBudgetContext.Accounts { get; set; }
-        //DbSet<Budget> IBudgetContext.Budgets { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<Budget> Budgets { get; set; }
+        public DbSet<Expense> Expenses { get; set; }
+        public DbSet<Income> Incomes { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Debt> Debts { get; set; }
     }
 }
