@@ -4,9 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlazingBudget.Application.Budgets.Queries
+namespace BlazingBudget.Application.Dashboard.MonthlyExpenses;
+internal class GetMonthlyExpenses
 {
-    internal class GetBudgetQuery
-    {
-    }
 }

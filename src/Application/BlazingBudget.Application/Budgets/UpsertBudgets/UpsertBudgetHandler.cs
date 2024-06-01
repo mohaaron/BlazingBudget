@@ -7,20 +7,20 @@ using BlazingBudget.Domain.Aggregates.Accounts;
 using BlazingBudget.Domain.Aggregates.Budgets;
 using BlazingBudget.Domain.ValueObjects;
 
-namespace BlazingBudget.Application.Budgets.Commands
+namespace BlazingBudget.Application.Budgets.UpsertBudgets
 {
-    public class CreateBudgetCommandHandler
+    public class UpsertBudgetHandler
     {
-        public CreateBudgetCommandHandler() { }
+        public UpsertBudgetHandler() { }
 
         //[UnitOfWork] // From Abp library
-        public Task Handle(CreateBudgetCommand request)
+        public Task Handle(UpsertBudget request)
         {
             // TODO: Use Domain models for write only dbcontext
 
             // var aggregate = await repository.Get(model.Id);
             Budget budget = Budget.Create(AccountId.Create(), "My new budget", new DateOnly(2024, 1, 1));
-            
+
             //budget.AddIncome(Income.Create("Salary", Money.Create(1).Value, new DateOnly(2024, 1, 1)));
             //budget.AddExpense(Expense.Create("Rent", Money.Create(1).Value));
 

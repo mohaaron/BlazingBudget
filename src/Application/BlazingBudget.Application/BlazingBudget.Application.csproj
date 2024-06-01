@@ -7,10 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Dashboard\Commands\**" />
+    <Compile Remove="Dashboard\Queries\**" />
+    <EmbeddedResource Remove="Dashboard\Commands\**" />
+    <EmbeddedResource Remove="Dashboard\Queries\**" />
+    <None Remove="Dashboard\Commands\**" />
+    <None Remove="Dashboard\Queries\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Accounts\Commands\" />
     <Folder Include="Accounts\Queries\" />
-    <Folder Include="Dashboard\Commands\" />
-    <Folder Include="Dashboard\Queries\" />
+    <Folder Include="Dashboard\MonthlyIncome\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
