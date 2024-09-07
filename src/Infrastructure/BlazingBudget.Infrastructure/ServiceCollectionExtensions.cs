@@ -3,11 +3,6 @@ using BlazingBudget.Infrastructure.Persistence.EntityFramework;
 using BlazingBudget.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BlazingBudget.Infrastructure
 {
@@ -17,8 +12,12 @@ namespace BlazingBudget.Infrastructure
         {
             services.AddDbContextFactory<BudgetContext>(options =>
             {
-                options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-                options.EnableDetailedErrors(true);
+                string fileName = @"\blazingbudget.db";
+                string dbFilePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + fileName;
+                options
+                .UseSqlite($"Data Source={dbFilePath}", x => x.MigrationsAssembly("BlazingBudget.Infrastructure"))
+                .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
+                .EnableDetailedErrors(true);
             });
 
             services.AddScoped<IAccountRepository, AccountRepository>();

@@ -11,18 +11,18 @@ namespace BlazingBudget.Application.Accounts.Models
     {
         [Required()]
         [MaxLength(100)]
-        public string FirstName { get; set; }
+        public string FirstName { get; set; } = string.Empty;
 
         [Required()]
         [MaxLength(100)]
-        public string LastName { get; set; }
+        public string LastName { get; set; } = string.Empty;
 
         [Required()]
         [MaxLength(100)]
-        public string Email { get; set; }
+        public string Email { get; set; } = string.Empty;
 
         [Required()]
         [MaxLength(100)]
-        public string Password { get; set; }
+        public string Password { get; set; } = string.Empty;
     }
 }
