@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <PackageReference Include="Abp" Version="9.2.2" />
-    <PackageReference Include="Ardalis.GuardClauses" Version="4.5.0" />
     <PackageReference Include="CSharpFunctionalExtensions" Version="2.42.0" />
     <PackageReference Include="StronglyTypedId" Version="1.0.0-beta08" />
   </ItemGroup>

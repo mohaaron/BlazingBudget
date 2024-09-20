@@ -1,6 +1,5 @@
 ﻿using Abp;
 using Abp.Domain.Entities;
-using Ardalis.GuardClauses;
 using BlazingBudget.Domain.Aggregates.Accounts;
 
 namespace BlazingBudget.Domain.Aggregates.Budgets
@@ -16,11 +15,11 @@ namespace BlazingBudget.Domain.Aggregates.Budgets
             AccountId = accountId;
 
             // Also must not already exist
-            Name = Check.NotNullOrWhiteSpace(name, nameof(name));
+            //Name = Check.NotNullOrWhiteSpace(name, nameof(name));
 
             // Also must not already exist
-            Month = Guard.Against.InvalidInput(month, nameof(month),
-                month => month >= DateOnly.FromDateTime(DateTime.Now));
+            //Month = Guard.Against.InvalidInput(month, nameof(month),
+            //    month => month >= DateOnly.FromDateTime(DateTime.Now));
         }
 
         public static Budget Create(AccountId accountId, string name, DateOnly month)
