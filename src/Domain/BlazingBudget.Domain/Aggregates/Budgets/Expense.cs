@@ -23,7 +23,7 @@ namespace BlazingBudget.Domain.Aggregates.Budgets
 
         public string Name { get; private set; }
 
-        public Money Cost { get; private set; }
+        public Money Cost { get; private set; } = Money.Zero;
 
         public string Notes { get; private set; } // How do we model optional attributes?
 
