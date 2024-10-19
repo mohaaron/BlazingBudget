@@ -33,6 +33,8 @@ namespace BlazingBudget.Domain.ValueObjects
             return Result.Success(new Money(amount));
         }
 
+        public static Money Zero => new Money(0);
+
         public decimal Value { get; private set; }
 
         public Currency Currency { get; private set; } = new Currency("Dollar", "USD");
