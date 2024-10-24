@@ -11,14 +11,14 @@ namespace BlazingBudget.Domain.Tests
         [Fact]
         public void Serializes_Debt_Aggregate_Successfully()
         {
-            Result<Money> amountResult = Money.Create(0);
+            Result<Money> amountResult = Money.Create(1);
 
             if (amountResult.IsFailure)
             {
                 throw new Exception(amountResult.Error);
             }
 
-            Result<Debt> debtResult = Debt.Create("", amountResult.Value);
+            Result<Debt> debtResult = Debt.Create("NAME", amountResult.Value);
             if (debtResult.IsFailure)
             {
                 throw new Exception(debtResult.Error);

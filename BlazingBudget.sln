@@ -35,9 +35,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingBudget.Client.Compon
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingBudget.Domain.Tests", "tests\BlazingBudget.Domain.Tests\BlazingBudget.Domain.Tests.csproj", "{B3996515-77AA-40A6-880B-4AD4E3F654F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazingBudget.Application.Tests", "tests\BlazingBudget.Application.Tests\BlazingBudget.Application.Tests.csproj", "{54FF2826-4986-491C-A757-DFCECB1839B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingBudget.Application.Tests", "tests\BlazingBudget.Application.Tests\BlazingBudget.Application.Tests.csproj", "{54FF2826-4986-491C-A757-DFCECB1839B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazingBudget.TUnitTesting.Tests", "tests\BlazingBudget.TUnitTesting.Tests\BlazingBudget.TUnitTesting.Tests.csproj", "{8A233ACC-4F14-479E-BBC9-012E7EBA7AFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingBudget.TUnitTesting.Tests", "tests\BlazingBudget.TUnitTesting.Tests\BlazingBudget.TUnitTesting.Tests.csproj", "{8A233ACC-4F14-479E-BBC9-012E7EBA7AFB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D150A969-CC20-4471-A12E-CD8EA977F1AF}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

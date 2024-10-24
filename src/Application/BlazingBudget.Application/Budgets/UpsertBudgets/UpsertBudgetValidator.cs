@@ -8,7 +8,8 @@ namespace BlazingBudget.Application.Budgets.UpsertBudgets
         {
             RuleFor(model => model.Name)
                 .MaximumLength(300)
-                .NotEmpty();
+                .NotEmpty()
+                .WithMessage("Name cannot be empty.");
         }
     }
 }
