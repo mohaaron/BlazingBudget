@@ -1,8 +1,8 @@
 ﻿using CSharpFunctionalExtensions;
 
-namespace BlazingBudget.Domain.ValueObjects
-{
-    public class Password : Abp.Domain.Values.ValueObject
+namespace BlazingBudget.Domain.ValueObjects;
+
+    public class Password : ValueObject
     {
         public string Value { get; private set; }
 
@@ -24,9 +24,8 @@ namespace BlazingBudget.Domain.ValueObjects
             return Result.Success(new Password(value));
         }
 
-        protected override IEnumerable<object> GetAtomicValues()
-        {
-            yield return Value;
-        }
-    }
+	protected override IEnumerable<object> GetEqualityComponents()
+	{
+		yield return Value;
+	}
 }

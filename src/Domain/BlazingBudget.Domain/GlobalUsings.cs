@@ -2,6 +2,6 @@
 global using System.Text.Json.Serialization;
 global using System.Text.RegularExpressions;
 
-//global using CSharpFunctionalExtensions;
+global using CSharpFunctionalExtensions;
 
-global using BlazingBudget.Domain.Shared;
+global using BlazingBudget.Domain.Abstractions;

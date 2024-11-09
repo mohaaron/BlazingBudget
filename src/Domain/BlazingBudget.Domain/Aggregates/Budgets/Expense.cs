@@ -1,48 +1,46 @@
-﻿using Abp;
+﻿using BlazingBudget.Domain.Abstractions;
 using BlazingBudget.Domain.ValueObjects;
 
-namespace BlazingBudget.Domain.Aggregates.Budgets
+namespace BlazingBudget.Domain.Aggregates.Budgets;
+public class Expense : AuditableEntity<ExpenseId>
 {
-    public class Expense : Entity<ExpenseId>
-    {
-        private Expense() { }
+	private Expense() { }
 
-        private Expense(ExpenseId id, string name, Money cost)
-        {
-            Id = id;
-            ChangeName(name);
-            Cost = cost;
-            CreatedOn = DateTime.UtcNow;
-            UpdatedOn = CreatedOn;
-        }
+	private Expense(ExpenseId id, string name, Money cost)
+	{
+		Id = id;
+		ChangeName(name);
+		Cost = cost;
+		CreatedOn = DateTime.UtcNow;
+		ModifiedOn = CreatedOn;
+	}
 
-        public static Expense Create(string name, Money cost)
-        {
-            return new Expense(new ExpenseId(Guid.NewGuid()), name, cost);
-        }
+	public static Expense Create(string name, Money cost)
+	{
+		return new Expense(new ExpenseId(Guid.NewGuid()), name, cost);
+	}
 
-        public string Name { get; private set; }
+	public string Name { get; private set; }
 
-        public Money Cost { get; private set; } = Money.Zero;
+	public Money Cost { get; private set; } = Money.Zero;
 
-        public string Notes { get; private set; } // How do we model optional attributes?
+	public string Notes { get; private set; } // How do we model optional attributes?
 
-        private ICollection<Payment> payments { get; set; }
+	private ICollection<Payment> payments = [];
 
-        internal Expense ChangeName(string name)
-        {
-            SetName(name);
-            return this;
-        }
+	internal Expense ChangeName(string name)
+	{
+		SetName(name);
+		return this;
+	}
 
-        private void SetName(string name)
-        {
-            Name = Check.NotNullOrWhiteSpace(name, nameof(name));
-        }
+	private void SetName(string name)
+	{
+		Name = name;
+	}
 
-        internal void MakePayment(Payment payment)
-        {
-            payments.Add(payment);
-        }
-    }
+	internal void MakePayment(Payment payment)
+	{
+		payments.Add(payment);
+	}
 }

@@ -1,33 +1,22 @@
 ﻿using BlazingBudget.Domain.Aggregates.Accounts;
 using BlazingBudget.Infrastructure.Persistence.EntityFramework;
 using CSharpFunctionalExtensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BlazingBudget.Infrastructure.Persistence.Repositories
+namespace BlazingBudget.Infrastructure.Persistence.Repositories;
+internal sealed class AccountRepository : IAccountRepository
 {
-    internal sealed class AccountRepository : IAccountRepository
+    private readonly BudgetContext context;
+
+    public AccountRepository(BudgetContext context)
     {
-        private readonly BudgetContext context;
-
-        public AccountRepository(BudgetContext context)
-        {
-            this.context = context ?? throw new ArgumentNullException(nameof(context));
-        }
-
-        public async Task<Result<bool>> CanCreateAccount(Account account)
-        {
-            var currentAccount = await context.FindAsync<Account>(account.Id.Value);
-
-            if (currentAccount == null)
-            {
-                return Result.Success(true);
-            }
-
-            return Result.Failure<bool>("Account already exists.");
-        }
+        this.context = context ?? throw new ArgumentNullException(nameof(context));
     }
+
+    public async Task<Result<bool>> CanCreateAccount(Account account)
+    {
+        Result<Account, string> result = await context.Accounts.FindAsync(account.Id.Value)
+			.ToResultAsync($"Error fetching account for id {account.Id.Value}.");
+
+		return result.TryGetError(out string? error) ? Result.Failure<bool>(error) : Result.Success(true);
+	}
 }

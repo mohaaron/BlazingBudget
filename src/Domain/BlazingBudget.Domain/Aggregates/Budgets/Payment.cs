@@ -5,7 +5,7 @@ namespace BlazingBudget.Domain.Aggregates.Budgets
     /// <summary>
     /// {BudgetPlan}Payment is an entity because the amount of a payment over time affects long term finances.
     /// </summary>
-    public class Payment : Entity<PaymentId>
+    public class Payment : AuditableEntity<PaymentId>
     {
         private Payment() { }
 
@@ -16,7 +16,7 @@ namespace BlazingBudget.Domain.Aggregates.Budgets
             Amount = amount;
             Notes = notes;
             CreatedOn = DateTime.UtcNow;
-            UpdatedOn = CreatedOn;
+            ModifiedOn = CreatedOn;
         }
 
         public static Payment Create(Money amount, string notes = "")

@@ -3,7 +3,7 @@
 namespace BlazingBudget.Domain.Aggregates.Debts
 {
 
-    public class DebtPayment : Entity<DebtPaymentId>
+    public class DebtPayment : AuditableEntity<DebtPaymentId>
     {
         private DebtPayment() { }
 
@@ -14,7 +14,7 @@ namespace BlazingBudget.Domain.Aggregates.Debts
             Amount = amount;
             Notes = notes;
             CreatedOn = DateTime.UtcNow;
-            UpdatedOn = CreatedOn;
+            ModifiedOn = CreatedOn;
         }
 
         public static DebtPayment Create(Money amount, string notes = "")
