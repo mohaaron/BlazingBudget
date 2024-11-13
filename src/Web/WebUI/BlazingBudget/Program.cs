@@ -1,3 +1,4 @@
+using BlazingBudget.Application;
 using BlazingBudget.Components;
 using BlazingBudget.Infrastructure;
 
@@ -8,6 +9,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
 
+builder.Services.AddApplication();
 builder.Services.AddInfrastructure();
 
 var app = builder.Build();

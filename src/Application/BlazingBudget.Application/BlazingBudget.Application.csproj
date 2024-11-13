@@ -22,13 +22,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Budgets\ApiEndpoints\" />
     <Folder Include="Dashboard\MonthlyIncome\" />
     <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FastEndpoints" Version="5.31.0" />
     <PackageReference Include="FluentValidation" Version="11.10.0" />
     <PackageReference Include="Mapster" Version="7.4.1-pre01" />
+    <PackageReference Include="Mediator.Abstractions" Version="2.1.7" />
+    <PackageReference Include="Mediator.SourceGenerator" Version="2.1.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>

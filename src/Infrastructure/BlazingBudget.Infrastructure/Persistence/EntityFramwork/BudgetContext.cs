@@ -4,21 +4,19 @@ using BlazingBudget.Domain.Aggregates.Debts;
 using BlazingBudget.Domain.ValueConverters;
 using Microsoft.EntityFrameworkCore;
 
-namespace BlazingBudget.Infrastructure.Persistence.EntityFramework
+namespace BlazingBudget.Infrastructure.Persistence.EntityFramwork;
+// TODO: Make two contexts, one for write only and one for read only
+public sealed class BudgetContext : DbContext//, IBudgetContext
 {
-    // TODO: Make two contexts, one for write only and one for read only
-    internal sealed class BudgetContext : DbContext//, IBudgetContext
-    {
-        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
-        {
-            configurationBuilder.Properties<BudgetId>().HaveConversion<BudgetIdConverter>();
-        }
+	protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+	{
+		configurationBuilder.Properties<BudgetId>().HaveConversion<BudgetIdConverter>();
+	}
 
-        public DbSet<Account> Accounts { get; set; }
-        public DbSet<Budget> Budgets { get; set; }
-        public DbSet<Expense> Expenses { get; set; }
-        public DbSet<Income> Incomes { get; set; }
-        public DbSet<Payment> Payments { get; set; }
-        public DbSet<Debt> Debts { get; set; }
-    }
+	public DbSet<Account> Accounts { get; set; }
+	public DbSet<Budget> Budgets { get; set; }
+	public DbSet<Expense> Expenses { get; set; }
+	public DbSet<Income> Incomes { get; set; }
+	public DbSet<Payment> Payments { get; set; }
+	public DbSet<Debt> Debts { get; set; }
 }

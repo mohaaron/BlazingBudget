@@ -1,4 +1,6 @@
+using BlazingBudget.Application;
 using BlazingBudget.Infrastructure;
+using FastEndpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddApplication();
 builder.Services.AddInfrastructure();
 
 var app = builder.Build();
@@ -19,6 +22,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseFastEndpoints(endpoints =>
+{
+	endpoints.Endpoints.RoutePrefix = "api";
+});
 
 var summaries = new[]
 {

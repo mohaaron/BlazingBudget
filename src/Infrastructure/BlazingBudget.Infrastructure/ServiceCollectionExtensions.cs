@@ -1,12 +1,12 @@
 ﻿using BlazingBudget.Domain.Aggregates.Accounts;
-using BlazingBudget.Infrastructure.Persistence.EntityFramework;
+using BlazingBudget.Infrastructure.Persistence.EntityFramwork;
 using BlazingBudget.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BlazingBudget.Infrastructure
 {
-    public static class ServiceCollectionExtensions
+	public static class ServiceCollectionExtensions
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {

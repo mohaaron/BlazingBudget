@@ -1,19 +1,39 @@
 ﻿using BlazingBudget.Domain.Aggregates.Accounts;
 using BlazingBudget.Domain.Aggregates.Budgets;
 using BlazingBudget.Domain.ValueObjects;
+using BlazingBudget.Infrastructure.Persistence.EntityFramwork;
+using CSharpFunctionalExtensions;
+using Mediator;
 
 namespace BlazingBudget.Application.Budgets.UpsertBudgets;
-public class UpsertBudgetHandler
+public class UpsertBudgetHandler : ICommandHandler<UpsertBudgetRequest, IResult>
 {
-    public UpsertBudgetHandler() { }
+	private readonly BudgetContext budgetContext;
 
-    //[UnitOfWork] // From Abp library
-    public Task Handle(UpsertBudget request)
-    {
-        // TODO: Use Domain models for write only dbcontext
+	public UpsertBudgetHandler(BudgetContext budgetContext)
+	{
+		this.budgetContext = budgetContext;
+	}
 
-        // var aggregate = await repository.Get(model.Id);
-        Budget budget = Budget.Create(AccountId.Create(), "My new budget", new DateOnly(2024, 1, 1));
+	public async ValueTask<IResult> Handle(UpsertBudgetRequest command, CancellationToken cancellationToken)
+	{
+		// TODO: Use Domain models for write only dbcontext
+		Result<Budget, Exception> result = await budgetContext.Budgets.FindAsync(command.Budget.Id, cancellationToken)
+			.ToResultAsync(new Exception());
+
+		if (result.TryGetError(out Exception? error))
+		{
+			return Result.Failure<IResult>(error.Message);
+		}
+
+		Maybe<Budget> maybeBudget = await budgetContext.Budgets.FindAsync(command.Budget.Id);
+		if (maybeBudget.HasValue)
+		{
+
+		}
+
+		// var aggregate = await repository.Get(model.Id);
+		Budget budget = Budget.Create(AccountId.Create(), "My new budget", new DateOnly(2024, 1, 1));
 
 		//budget.AddIncome(Income.Create("Salary", Money.Create(1).Value, new DateOnly(2024, 1, 1)));
 		budget.AddExpense(Expense.Create("Rent", Money.Create(1).Value));
@@ -22,6 +42,7 @@ public class UpsertBudgetHandler
 		// aggregate.DoSomethingElse(params ...);
 		// dispatcher.Dispatch(aggregate.DomainEvents); // Dispatch the events that were added in the mutations
 		// unitOfWork.Commit()
-		return Task.CompletedTask;
-    }
+
+		return Result.Success();
+	}
 }

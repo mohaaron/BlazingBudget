@@ -1,5 +1,4 @@
 ﻿@page "/"
-@using BlazingBudget.Domain.Enums
 
 <PageTitle>Home</PageTitle>
 
@@ -7,10 +6,10 @@
 
 <p>Welcome to your new app.</p>
 
-@foreach(var creditCard in CreditCard.GetAll<CreditCard>())
+@* @foreach(var creditCard in CreditCard.GetAll<CreditCard>())
 {
     <div>@creditCard.Name</div>
-}
+} *@
 
 @code
 {

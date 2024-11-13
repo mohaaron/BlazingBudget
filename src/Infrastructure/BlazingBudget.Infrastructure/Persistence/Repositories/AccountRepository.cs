@@ -1,5 +1,5 @@
 ﻿using BlazingBudget.Domain.Aggregates.Accounts;
-using BlazingBudget.Infrastructure.Persistence.EntityFramework;
+using BlazingBudget.Infrastructure.Persistence.EntityFramwork;
 using CSharpFunctionalExtensions;
 
 namespace BlazingBudget.Infrastructure.Persistence.Repositories;

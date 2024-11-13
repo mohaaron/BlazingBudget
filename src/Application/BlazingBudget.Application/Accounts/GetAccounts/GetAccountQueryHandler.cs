@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BlazingBudget.Application.Accounts.GetAccounts;
-internal class GetAccountQueryHandler : IQueryHandler<GetAccountRequest, UpsertAccount>
+public class GetAccountQueryHandler : IQueryHandler<GetAccountRequest, UpsertAccount>
 {
     private readonly IMediator mediator;
 
