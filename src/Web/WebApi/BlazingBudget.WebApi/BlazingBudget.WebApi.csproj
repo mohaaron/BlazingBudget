@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Application\BlazingBudget.Application\BlazingBudget.Application.csproj" />
+    <ProjectReference Include="..\..\..\Aspire\BlazingBudget.ServiceDefaults\BlazingBudget.ServiceDefaults.csproj" />
     <ProjectReference Include="..\..\..\Infrastructure\BlazingBudget.Infrastructure\BlazingBudget.Infrastructure.csproj" />
   </ItemGroup>
 
