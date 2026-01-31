@@ -15,7 +15,11 @@
       "Bash(gh pr create:*)",
       "Bash(gh issue create --title \"Fix Mapster BudgetId to Guid mapping test failure\" --body \"$\\(cat <<''EOF''\n## Problem\nThe test `BudgetModelTests.Map_From_Aggregate_To_Model_Successfully` is failing due to a Mapster configuration issue.\n\n## Error\n```\nMapster.CompileException: Cannot convert immutable type, please consider using ''MapWith'' method to create mapping\nsource=BlazingBudget.Domain.Aggregates.Budgets.BudgetId\ndestination=System.Guid\n```\n\n## Solution\nConfigure Mapster to handle strongly-typed ID conversions:\n- Add a `MapWith` configuration for `BudgetId` → `Guid`\n- Consider creating a global Mapster configuration for all strongly-typed IDs\n\n## Acceptance Criteria\n- [ ] All tests pass\n- [ ] Mapster configuration handles all strongly-typed IDs in the project\nEOF\n\\)\")",
       "Bash(gh issue create --title \"Set up database connection for development\" --body \"$\\(cat <<''EOF''\n## Goal\nConfigure a database connection string so EF Core migrations and database operations work end-to-end.\n\n## Tasks\n- [ ] Add connection string to `appsettings.Development.json`\n- [ ] Verify `BudgetContext` can connect to the database\n- [ ] Run initial migration \\(if not already done\\)\n- [ ] Test basic CRUD operations\n\n## Options\n1. **SQL Server LocalDB** - Zero setup on Windows\n2. **SQLite** - Portable, no server needed\n3. **PostgreSQL** - Production-ready option\n4. **SQL Server \\(Docker\\)** - Matches production environments\n\n## Notes\nThis enables Claude to test database operations and verify EF configurations work correctly.\nEOF\n\\)\")",
-      "Bash(gh issue create:*)"
+      "Bash(gh issue create:*)",
+      "Bash(dotnet ef migrations list:*)",
+      "Bash(dotnet restore:*)",
+      "Bash(dotnet ef migrations add:*)",
+      "Bash(dotnet ef database update:*)"
     ]
   }
 }
