@@ -19,7 +19,9 @@
       "Bash(dotnet ef migrations list:*)",
       "Bash(dotnet restore:*)",
       "Bash(dotnet ef migrations add:*)",
-      "Bash(dotnet ef database update:*)"
+      "Bash(dotnet ef database update:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh api:*)"
     ]
   }
 }

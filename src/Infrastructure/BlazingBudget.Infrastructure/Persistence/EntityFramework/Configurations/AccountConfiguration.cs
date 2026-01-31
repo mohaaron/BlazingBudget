@@ -13,7 +13,7 @@ public class AccountConfiguration : IEntityTypeConfiguration<Account>
 		builder.HasKey(a => a.Id);
 
 		builder.Property(a => a.Id)
-			.HasConversion(id => id.Value, value => AccountId.Create());
+			.HasConversion(id => id.Value, value => new AccountId(value));
 
 		builder.OwnsOne(a => a.Name, builder =>
 		{

@@ -34,7 +34,7 @@ public class UpsertBudgetHandler : ICommandHandler<UpsertBudgetRequest, IResult>
 		}
 
 		// var aggregate = await repository.Get(model.Id);
-		Budget budget = Budget.Create(AccountId.Create(), "My new budget", new DateOnly(2024, 1, 1));
+		Budget budget = Budget.Create(new AccountId(Guid.NewGuid()), "My new budget", new DateOnly(2024, 1, 1));
 
 		//budget.AddIncome(Income.Create("Salary", Money.Create(1).Value, new DateOnly(2024, 1, 1)));
 		budget.AddExpense(Expense.Create("Rent", Money.Create(1).Value));

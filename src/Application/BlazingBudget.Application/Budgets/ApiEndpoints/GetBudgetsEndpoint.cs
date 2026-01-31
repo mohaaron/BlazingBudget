@@ -30,7 +30,7 @@ public class GetBudgetsEndpoint : Endpoint<GetBudgetsRequest, IReadOnlyCollectio
 		Logger.LogInformation("Getting budgets for account {AccountId}", req);
 
 		Budget[] budgets = await context.Budgets
-			.Where(e => e.AccountId == AccountId.Create())
+			.Where(e => e.AccountId == new AccountId(Guid.NewGuid()))
 			.ProjectToType<Budget>()
 			.ToArrayAsync(ct);
 

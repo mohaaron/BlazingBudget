@@ -17,7 +17,7 @@ namespace BlazingBudget.Application.Tests
         [Fact]
         public void Map_From_Aggregate_To_Model_Successfully()
         {
-            Budget budget = Budget.Create(AccountId.Create(), "Budget Name", new DateOnly(2024, 1, 1));
+            Budget budget = Budget.Create(new AccountId(Guid.NewGuid()), "Budget Name", new DateOnly(2024, 1, 1));
             budget.AddExpense(Expense.Create("Rent", Money.Create(1).Value));
             budget.AddIncome(Income.Create("Salery", Money.Create(1).Value, new DateOnly(2024, 1, 1)));
 			_ = budget.Adapt<UpsertBudget>();
@@ -29,7 +29,7 @@ namespace BlazingBudget.Application.Tests
 		//	BudgetModel model = new()
   //          {
   //              Id = BudgetId.New(),
-  //              AccountId = AccountId.Create(),
+  //              AccountId = new AccountId(Guid.NewGuid()),
   //              Name = "Budget Name",
   //              Month = new DateOnly(2024, 1, 1)
   //          };
