@@ -9,13 +9,16 @@ namespace BlazingBudget.Domain.Aggregates.Accounts;
 public readonly struct AccountId : IComparable<AccountId>
 {
 	[JsonConstructor]
-	private AccountId(Guid value)
+	public AccountId(Guid value)
 	{
 		Value = value;
 	}
 
 	public static AccountId Create()
 		=> new(Guid.NewGuid());
+
+	public static AccountId Create(Guid value)
+		=> new(value);
 
 	public Guid Value { get; }
 
