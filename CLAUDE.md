@@ -2,6 +2,47 @@
 
 A Domain-Driven Design (DDD) budget management application built with .NET 8 and Blazor.
 
+## Development Workflow Rules
+
+**IMPORTANT: Claude must follow these rules for all code changes.**
+
+### Branch-Based Development
+
+For every change request, follow this workflow:
+
+1. **Create a feature branch**
+   - Branch from `trunk` (main branch)
+   - Use descriptive branch names: `feature/{description}`, `fix/{description}`, `refactor/{description}`
+   - Example: `feature/add-category-aggregate`, `fix/budget-validation-error`
+
+2. **Make the changes**
+   - Implement the requested changes on the feature branch
+   - Follow existing project patterns and conventions
+
+3. **Test the changes**
+   - Build the solution: `dotnet build BlazingBudget.sln`
+   - Run all tests: `dotnet test BlazingBudget.sln`
+   - If applicable, run the WebApi and/or Web projects to verify functionality
+   - Fix any build errors or test failures before proceeding
+
+4. **Commit successful changes**
+   - Only commit after build and tests pass
+   - Use clear, descriptive commit messages
+   - Include `Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>`
+
+5. **Push the branch**
+   - Push the feature branch to origin
+
+6. **Create a Pull Request**
+   - Create a PR targeting `trunk`
+   - Include a summary of changes and test plan
+   - Provide the PR URL for review
+
+### Workflow Exceptions
+
+- **Documentation-only changes**: May be committed directly to trunk if minimal
+- **Emergency fixes**: Ask user before bypassing the branch workflow
+
 ## Project Structure
 
 - `src/Domain/` - Domain layer with aggregates, entities, value objects, and domain events
