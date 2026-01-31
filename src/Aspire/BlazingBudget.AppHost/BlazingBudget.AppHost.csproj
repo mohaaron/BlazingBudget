@@ -1,4 +1,6 @@
-<Project Sdk="Aspire.AppHost.Sdk/9.0.0">
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0" />
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -12,8 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Web\WebApi\BlazingBudget.WebApi\BlazingBudget.WebApi.csproj" />
-    <ProjectReference Include="..\..\Web\WebUI\BlazingBudget\BlazingBudget.csproj" />
+    <ProjectReference Include="..\..\Web\WebApi\BlazingBudget.WebApi\BlazingBudget.WebApi.csproj" IsAspireProjectResource="true" />
+    <ProjectReference Include="..\..\Web\WebUI\BlazingBudget\BlazingBudget.csproj" IsAspireProjectResource="true" />
   </ItemGroup>
 
 </Project>
