@@ -39,6 +39,7 @@ For every change request, follow this workflow:
    - Only commit after build and tests pass
    - Use clear, descriptive commit messages
    - Include `Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>`
+   - **Always include `.claude/settings.local.json`** when it has changes - this file tracks permissions granted during sessions and should be committed with related work
 
 5. **Push the branch**
    - Push the feature branch to origin
