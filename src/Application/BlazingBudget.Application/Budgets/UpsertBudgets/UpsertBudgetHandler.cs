@@ -2,6 +2,7 @@
 using BlazingBudget.Domain.Aggregates.Budgets;
 using BlazingBudget.Domain.ValueObjects;
 using BlazingBudget.Infrastructure.Persistence.EntityFramework;
+using BlazingBudget.Infrastructure.Persistence.Extensions;
 using CSharpFunctionalExtensions;
 using Mediator;
 
@@ -26,7 +27,7 @@ public class UpsertBudgetHandler : ICommandHandler<UpsertBudgetRequest, IResult>
 			return Result.Failure<IResult>(error.Message);
 		}
 
-		Maybe<Budget> maybeBudget = await budgetContext.Budgets.FindAsync(command.Budget.Id);
+		Maybe<Budget> maybeBudget = await budgetContext.Budgets.FindMaybeAsync(command.Budget.Id, cancellationToken);
 		if (maybeBudget.HasValue)
 		{
 
