@@ -65,15 +65,52 @@ Run all tests in the solution and report any failures.
 Use: dotnet test BlazingBudget.sln
 ```
 
-### Useful Commands for ASP.NET Projects
+### Available Commands
 
-| Command | Description |
-|---------|-------------|
-| `/test` | Run all unit and integration tests |
-| `/build` | Build solution and report errors |
-| `/migrate` | Run pending EF Core migrations |
-| `/add-migration` | Create a new EF Core migration |
-| `/endpoint` | Scaffold a new FastEndpoint |
-| `/aggregate` | Create a new DDD aggregate with ID, entity, and events |
-| `/component` | Create a new Blazor component |
-| `/review` | Review code for best practices and security |
+This project includes the following custom Claude Code commands in `.claude/commands/`:
+
+| Command | Description | Usage |
+|---------|-------------|-------|
+| `/test` | Run all unit and integration tests | `/test` |
+| `/build` | Build solution and report errors | `/build` |
+| `/migrate` | Run pending EF Core migrations | `/migrate` |
+| `/add-migration` | Create a new EF Core migration | `/add-migration InitialCreate` |
+| `/endpoint` | Scaffold a new FastEndpoint | `/endpoint` (interactive) |
+| `/aggregate` | Create a new DDD aggregate with ID and repository | `/aggregate` (interactive) |
+| `/component` | Create a new Blazor component | `/component` (interactive) |
+| `/review` | Review code for best practices and security | `/review path/to/file.cs` |
+
+### Command Details
+
+#### /test
+Runs all tests in the solution using TUnit and reports pass/fail status with details on failures.
+
+#### /build
+Builds the entire solution and provides a summary of errors and warnings with suggested fixes.
+
+#### /migrate & /add-migration
+Manages Entity Framework Core migrations for the `BudgetContext`. Uses the Infrastructure project for migrations and WebApi as the startup project.
+
+#### /endpoint
+Interactively scaffolds a new FastEndpoint following this project's patterns:
+- Creates `{Name}Endpoint.cs`, `{Name}Request.cs`, and `{Name}Response.cs`
+- Places files in `src/Application/BlazingBudget.Application/{Aggregate}/ApiEndpoints/`
+
+#### /aggregate
+Creates a complete DDD aggregate following this project's patterns:
+- Aggregate root with private constructor and static factory method
+- Strongly-typed ID (`{Name}Id`)
+- Repository interface (`I{Name}Repository`)
+- Places files in `src/Domain/BlazingBudget.Domain/Aggregates/{Name}/`
+
+#### /component
+Scaffolds Blazor components for the WebAssembly client:
+- Pages go in `src/Web/WebUI/BlazingBudget.Client.Components/Pages/`
+- Reusable components go in `src/Web/WebUI/BlazingBudget.Client.Components/`
+
+#### /review
+Reviews code for:
+- DDD pattern compliance (aggregate design, value objects, domain events)
+- Security issues (SQL injection, hardcoded secrets, auth)
+- Code quality (naming, null handling, async patterns)
+- FastEndpoints best practices

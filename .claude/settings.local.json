@@ -5,7 +5,8 @@
       "Bash(dotnet run:*)",
       "Bash(git add:*)",
       "Bash(git commit -m \"$\\(cat <<''EOF''\nFix EntityFramework namespace typo and add ViewModels project\n\nRenamed EntityFramwork folder to EntityFramework and updated all references.\nAdded Application.ViewModels project, GetBudgets API endpoint, CurrencyService,\nand EF configurations.\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
-      "Bash(git push)"
+      "Bash(git push)",
+      "Bash(git commit:*)"
     ]
   }
 }
