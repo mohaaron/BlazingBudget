@@ -26,7 +26,8 @@
       "Bash(dotnet workload:*)",
       "Bash(dotnet sln add:*)",
       "Bash(dotnet nuget:*)",
-      "Bash(dotnet dev-certs:*)"
+      "Bash(dotnet dev-certs:*)",
+      "Bash(gh issue view:*)"
     ]
   }
 }
