@@ -85,6 +85,226 @@ dotnet run --project src/Web/WebUI/BlazingBudget
 - CSharpFunctionalExtensions
 - TUnit (for testing)
 
+## Coding Preferences & Conventions
+
+### Error Handling
+
+**Use `Result<T>` everywhere** - All operations that can fail should return `Result<T>` or `Result<T, E>` from CSharpFunctionalExtensions.
+
+```csharp
+// Good - explicit failure handling
+public Result<Budget> CreateBudget(string name, DateOnly month)
+{
+    if (string.IsNullOrWhiteSpace(name))
+        return Result.Failure<Budget>("Budget name is required");
+
+    return Result.Success(Budget.Create(accountId, name, month));
+}
+
+// Avoid - throwing exceptions for expected failures
+public Budget CreateBudget(string name, DateOnly month)
+{
+    if (string.IsNullOrWhiteSpace(name))
+        throw new ArgumentException("Budget name is required");
+    // ...
+}
+```
+
+### Nullability & Maybe<T>
+
+**Use `Maybe<T>` for domain/application logic**, nullable types at system boundaries.
+
+| Context | Use |
+|---------|-----|
+| Domain entities, value objects | `Maybe<T>` |
+| Application services, handlers | `Maybe<T>` |
+| API request/response DTOs | Nullable types (`T?`) |
+| EF Core queries (single entity) | `Maybe<T>` via extension methods |
+| External API responses | Nullable types, convert to `Maybe<T>` |
+
+```csharp
+// Domain/Application - use Maybe<T>
+Maybe<Budget> maybeBudget = await context.Budgets.FindMaybeAsync(id, ct);
+if (maybeBudget.HasNoValue)
+    return Result.Failure<Budget>("Budget not found");
+
+// API boundary - nullable is fine
+public record GetBudgetResponse(Guid Id, string Name, string? Description);
+```
+
+### Naming Conventions
+
+| Element | Convention | Example |
+|---------|------------|---------|
+| Private fields | camelCase (no prefix) | `budgetContext` |
+| Public properties | PascalCase | `BudgetName` |
+| Methods | PascalCase | `CreateBudget()` |
+| Async methods | Suffix with `Async` | `GetBudgetAsync()` |
+| Interfaces | Prefix with `I` | `IBudgetRepository` |
+| Strongly-typed IDs | `{Entity}Id` | `BudgetId`, `AccountId` |
+
+```csharp
+public class UpsertBudgetHandler
+{
+    private readonly BudgetContext budgetContext;  // camelCase, no underscore
+
+    public UpsertBudgetHandler(BudgetContext budgetContext)
+    {
+        this.budgetContext = budgetContext;  // use 'this.' to distinguish
+    }
+}
+```
+
+### Testing
+
+**Use TUnit** as the standard test framework.
+
+```csharp
+using TUnit.Core;
+
+public class BudgetTests
+{
+    [Test]
+    public async Task CreateBudget_WithValidData_ReturnsSuccess()
+    {
+        // Arrange
+        var name = "Monthly Budget";
+        var month = new DateOnly(2024, 1, 1);
+
+        // Act
+        var result = Budget.Create(accountId, name, month);
+
+        // Assert
+        await Assert.That(result).IsNotNull();
+        await Assert.That(result.Name).IsEqualTo(name);
+    }
+}
+```
+
+**Test naming**: `{Method}_{Scenario}_{ExpectedResult}`
+
+### DDD Patterns
+
+#### Aggregates
+- Private constructor + static `Create()` factory method
+- Strongly-typed ID as the identity
+- Encapsulate collections with private backing fields
+- Domain logic lives in the aggregate, not services
+
+```csharp
+public sealed class Budget : Entity<BudgetId>
+{
+    private Budget() { }  // EF Core
+
+    private Budget(BudgetId id, AccountId accountId, string name, DateOnly month)
+    {
+        Id = id;
+        AccountId = accountId;
+        Name = name;
+        Month = month;
+    }
+
+    public static Budget Create(AccountId accountId, string name, DateOnly month)
+        => new(BudgetId.New(), accountId, name, month);
+
+    // Encapsulated collection
+    public IReadOnlyCollection<Expense> Expenses => expenses;
+    private HashSet<Expense> expenses = new();
+
+    // Domain logic in aggregate
+    public Result AddExpense(Expense expense)
+    {
+        if (expenses.Any(e => e.Name == expense.Name))
+            return Result.Failure("Expense with this name already exists");
+
+        expenses.Add(expense);
+        return Result.Success();
+    }
+}
+```
+
+#### Value Objects
+- Immutable (readonly record struct or sealed class)
+- Equality based on values, not identity
+- Validation in factory method
+
+```csharp
+public readonly record struct Money
+{
+    public decimal Amount { get; }
+    public string Currency { get; }
+
+    private Money(decimal amount, string currency)
+    {
+        Amount = amount;
+        Currency = currency;
+    }
+
+    public static Result<Money> Create(decimal amount, string currency = "USD")
+    {
+        if (amount < 0)
+            return Result.Failure<Money>("Amount cannot be negative");
+
+        return Result.Success(new Money(amount, currency));
+    }
+}
+```
+
+### API Patterns (FastEndpoints)
+
+- One endpoint per file
+- Request/Response DTOs in same folder
+- Use proper HTTP status codes
+- Always include `CancellationToken`
+
+```csharp
+public class GetBudgetEndpoint : Endpoint<GetBudgetRequest, GetBudgetResponse>
+{
+    private readonly BudgetContext context;
+
+    public GetBudgetEndpoint(BudgetContext context)
+    {
+        this.context = context;
+    }
+
+    public override void Configure()
+    {
+        Get("budgets/{id}");
+        AllowAnonymous();  // Or specify auth requirements
+    }
+
+    public override async Task HandleAsync(GetBudgetRequest req, CancellationToken ct)
+    {
+        Maybe<Budget> maybeBudget = await context.Budgets
+            .FindMaybeAsync(req.Id, ct);
+
+        if (maybeBudget.HasNoValue)
+        {
+            await SendNotFoundAsync(ct);
+            return;
+        }
+
+        var response = maybeBudget.Value.Adapt<GetBudgetResponse>();
+        await SendOkAsync(response, ct);
+    }
+}
+```
+
+### Async Patterns
+
+- Always pass `CancellationToken` through the call chain
+- Prefer `ValueTask` for hot paths that often complete synchronously
+- Use `ConfigureAwait(false)` in library code (Infrastructure layer)
+
+```csharp
+public async Task<Maybe<Budget>> GetBudgetAsync(BudgetId id, CancellationToken ct)
+{
+    return await context.Budgets
+        .FindMaybeAsync(id, ct)
+        .ConfigureAwait(false);  // In Infrastructure layer
+}
+```
+
 ## Claude Code Configuration
 
 The `.claude` folder contains Claude Code settings and custom commands for this project.
