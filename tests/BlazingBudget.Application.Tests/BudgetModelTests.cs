@@ -1,4 +1,5 @@
 using BlazingBudget.Application.Budgets.UpsertBudgets;
+using BlazingBudget.Application.Mapping;
 using BlazingBudget.Domain.Aggregates.Accounts;
 using BlazingBudget.Domain.Aggregates.Budgets;
 using BlazingBudget.Domain.ValueObjects;
@@ -8,6 +9,11 @@ namespace BlazingBudget.Application.Tests
 {
     public class BudgetModelTests
     {
+        public BudgetModelTests()
+        {
+            MapsterConfiguration.Configure();
+        }
+
         [Fact]
         public void Map_From_Aggregate_To_Model_Successfully()
         {
