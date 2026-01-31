@@ -1,7 +1,7 @@
 ﻿using BlazingBudget.Domain.Aggregates.Accounts;
 using BlazingBudget.Domain.Aggregates.Budgets;
 using BlazingBudget.Domain.ValueObjects;
-using BlazingBudget.Infrastructure.Persistence.EntityFramwork;
+using BlazingBudget.Infrastructure.Persistence.EntityFramework;
 using CSharpFunctionalExtensions;
 using Mediator;
 

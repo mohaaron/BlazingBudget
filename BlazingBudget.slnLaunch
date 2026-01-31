@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "src\\Web\\WebApi\\BlazingBudget.WebApi\\BlazingBudget.WebApi.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "src\\Web\\WebUI\\BlazingBudget\\BlazingBudget.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

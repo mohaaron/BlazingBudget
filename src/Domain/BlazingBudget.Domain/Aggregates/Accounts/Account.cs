@@ -1,5 +1,4 @@
 ﻿using BlazingBudget.Domain.ValueObjects;
-using CSharpFunctionalExtensions;
 
 namespace BlazingBudget.Domain.Aggregates.Accounts;
 public sealed class Account : Entity<AccountId>
@@ -24,7 +23,5 @@ public sealed class Account : Entity<AccountId>
 	}
 
 	public static Result<Account> Create(PersonName name, Email email, Password password)
-	{
-		return Result.Success(new Account(AccountId.Create(), name, email, password));
-	}
+		=> Result.Success(new Account(AccountId.Create(), name, email, password));
 }

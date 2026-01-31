@@ -22,9 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Budgets\ApiEndpoints\" />
     <Folder Include="Dashboard\MonthlyIncome\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,6 +38,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Infrastructure\BlazingBudget.Infrastructure\BlazingBudget.Infrastructure.csproj" />
+    <ProjectReference Include="..\BlazingBudget.Application.ViewModels\BlazingBudget.Application.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

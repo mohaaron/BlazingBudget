@@ -1,5 +1,5 @@
 ﻿using BlazingBudget.Domain.Aggregates.Accounts;
-using BlazingBudget.Infrastructure.Persistence.EntityFramwork;
+using BlazingBudget.Infrastructure.Persistence.EntityFramework;
 using BlazingBudget.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,7 +16,7 @@ namespace BlazingBudget.Infrastructure
                 string dbFilePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + fileName;
                 options
                 .UseSqlite($"Data Source={dbFilePath}", x => x.MigrationsAssembly("BlazingBudget.Infrastructure"))
-                .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
+                //.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking) // TODO: Add to QueryEndpointBase class
                 .EnableDetailedErrors(true);
             });
 

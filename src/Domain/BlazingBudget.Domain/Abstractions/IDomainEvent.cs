@@ -7,4 +7,6 @@ using System.Threading.Tasks;
 namespace BlazingBudget.Domain.Abstractions;
 internal interface IDomainEvent
 {
+	DateTime EventTime { get; set; }
+	object EventSource { get; set; }
 }

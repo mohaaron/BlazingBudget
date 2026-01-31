@@ -1,4 +1,4 @@
-using BlazingBudget.Application.Models;
+using BlazingBudget.Application.Budgets.UpsertBudgets;
 using BlazingBudget.Domain.Aggregates.Accounts;
 using BlazingBudget.Domain.Aggregates.Budgets;
 using BlazingBudget.Domain.ValueObjects;
@@ -14,7 +14,7 @@ namespace BlazingBudget.Application.Tests
             Budget budget = Budget.Create(AccountId.Create(), "Budget Name", new DateOnly(2024, 1, 1));
             budget.AddExpense(Expense.Create("Rent", Money.Create(1).Value));
             budget.AddIncome(Income.Create("Salery", Money.Create(1).Value, new DateOnly(2024, 1, 1)));
-			_ = budget.Adapt<BudgetModel>();
+			_ = budget.Adapt<UpsertBudget>();
 		}
 
   //      [Fact]

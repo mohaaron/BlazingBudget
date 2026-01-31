@@ -20,4 +20,8 @@
     <PackageReference Include="MudBlazor" Version="7.15.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Application\BlazingBudget.Application.ViewModels\BlazingBudget.Application.ViewModels.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,7 +1,8 @@
 ﻿using StronglyTypedIds;
 
-namespace BlazingBudget.Domain.Aggregates.Budgets
-{
-    [StronglyTypedId]
-    public partial struct IncomeId { }
-}
+namespace BlazingBudget.Domain.Aggregates.Budgets;
+/// <summary>
+/// Income unique identifier.
+/// </summary>
+[StronglyTypedId]
+public readonly partial struct IncomeId { }

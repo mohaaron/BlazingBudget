@@ -1,16 +1,19 @@
 ﻿using BlazingBudget.Domain.Aggregates.Accounts;
 using BlazingBudget.Domain.Aggregates.Budgets;
 using BlazingBudget.Domain.Aggregates.Debts;
-using BlazingBudget.Domain.ValueConverters;
+using BlazingBudget.Infrastructure.Persistence.ValueConverters;
 using Microsoft.EntityFrameworkCore;
 
-namespace BlazingBudget.Infrastructure.Persistence.EntityFramwork;
-// TODO: Make two contexts, one for write only and one for read only
+namespace BlazingBudget.Infrastructure.Persistence.EntityFramework;
+/// <summary>
+/// 
+/// </summary>
 public sealed class BudgetContext : DbContext//, IBudgetContext
 {
 	protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
 	{
 		configurationBuilder.Properties<BudgetId>().HaveConversion<BudgetIdConverter>();
+		configurationBuilder.Properties<ExpenseId>().HaveConversion<BudgetIdConverter>();
 	}
 
 	public DbSet<Account> Accounts { get; set; }

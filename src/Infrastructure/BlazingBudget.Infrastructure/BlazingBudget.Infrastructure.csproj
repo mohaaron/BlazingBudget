@@ -7,11 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Email\" />
-    <Folder Include="FileSystem\" />
-    <Folder Include="Identity\" />
-    <Folder Include="Authentication\" />
-    <Folder Include="Interfaces\" />
+    <Compile Remove="Authentication\**" />
+    <Compile Remove="Email\**" />
+    <Compile Remove="FileSystem\**" />
+    <Compile Remove="Identity\**" />
+    <Compile Remove="Interfaces\**" />
+    <EmbeddedResource Remove="Authentication\**" />
+    <EmbeddedResource Remove="Email\**" />
+    <EmbeddedResource Remove="FileSystem\**" />
+    <EmbeddedResource Remove="Identity\**" />
+    <EmbeddedResource Remove="Interfaces\**" />
+    <None Remove="Authentication\**" />
+    <None Remove="Email\**" />
+    <None Remove="FileSystem\**" />
+    <None Remove="Identity\**" />
+    <None Remove="Interfaces\**" />
   </ItemGroup>
 
   <ItemGroup>

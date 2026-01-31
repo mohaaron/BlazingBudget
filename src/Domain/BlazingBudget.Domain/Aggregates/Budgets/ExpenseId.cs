@@ -1,12 +1,8 @@
 ﻿using StronglyTypedIds;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BlazingBudget.Domain.Aggregates.Budgets
-{
-    [StronglyTypedId]
-    public partial struct ExpenseId { }
-}
+namespace BlazingBudget.Domain.Aggregates.Budgets;
+/// <summary>
+/// Income unique identifier.
+/// </summary>
+[StronglyTypedId]
+public readonly partial struct ExpenseId { }
