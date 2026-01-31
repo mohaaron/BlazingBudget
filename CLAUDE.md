@@ -2,6 +2,16 @@
 
 A Domain-Driven Design (DDD) budget management application built with .NET 8 and Blazor.
 
+## Permissions
+
+**Claude has full permission to make any changes within the BlazingBudget project folder without asking for confirmation.** This includes:
+- Creating, editing, and deleting files
+- Running build, test, and other commands
+- Git operations (commit, push, branch, PR creation)
+- Installing packages and dependencies
+
+Claude should proceed autonomously and only ask questions when genuinely unclear about requirements.
+
 ## Development Workflow Rules
 
 **IMPORTANT: Claude must follow these rules for all code changes.**
