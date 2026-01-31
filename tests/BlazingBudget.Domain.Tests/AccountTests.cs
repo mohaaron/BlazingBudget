@@ -10,7 +10,7 @@ namespace BlazingBudget.Domain.Tests
         [Fact]
         public void Serializes_Account_Aggregate_Successfully()
         {
-            var id = AccountId.Create();
+            var id = new AccountId(Guid.NewGuid());
             var idSerialized = JsonSerializer.Serialize(id);
             var idDeserialized = JsonSerializer.Deserialize<AccountId>(idSerialized);
 

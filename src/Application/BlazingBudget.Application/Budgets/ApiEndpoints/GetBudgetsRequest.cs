@@ -1,5 +1,12 @@
-﻿namespace BlazingBudget.Application.Budgets.ApiEndpoints;
+namespace BlazingBudget.Application.Budgets.ApiEndpoints;
 
-public class GetBudgetsRequest
+/// <summary>
+/// Request for getting budgets.
+/// </summary>
+public record GetBudgetsRequest
 {
+	/// <summary>
+	/// Optional account ID filter.
+	/// </summary>
+	public Guid? AccountId { get; init; }
 }

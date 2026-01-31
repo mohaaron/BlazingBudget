@@ -9,7 +9,7 @@ public class GetBudgetByMonthQueryHandler : IRequestHandler<GetBudgetByMonthQuer
 {
     public ValueTask<UpsertBudget> Handle(GetBudgetByMonthQuery request, CancellationToken cancellationToken)
     {
-        Budget budget = Budget.Create(AccountId.Create(), "My new budget", new DateOnly(2024, 1, 1));
+        Budget budget = Budget.Create(new AccountId(Guid.NewGuid()), "My new budget", new DateOnly(2024, 1, 1));
         return ValueTask.FromResult(budget.Adapt<UpsertBudget>());
     }
 }
