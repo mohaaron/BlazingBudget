@@ -1,4 +1,5 @@
-﻿using BlazingBudget.Application.PipelineBehaviors;
+﻿using BlazingBudget.Application.Mapping;
+using BlazingBudget.Application.PipelineBehaviors;
 using FastEndpoints;
 using Mediator;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,6 +9,8 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
+		MapsterConfiguration.Configure();
+
 		services.AddFastEndpoints();
 
 		services.AddMediator(
