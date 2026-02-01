@@ -28,7 +28,8 @@
       "Bash(dotnet nuget:*)",
       "Bash(dotnet dev-certs:*)",
       "Bash(gh issue view:*)",
-      "Bash(git fetch:*)"
+      "Bash(git fetch:*)",
+      "Bash(git branch:*)"
     ]
   }
 }
