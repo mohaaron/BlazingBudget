@@ -1,6 +1,6 @@
-﻿using CSharpFunctionalExtensions;
+using CSharpFunctionalExtensions;
 
-namespace BlazingBudget.Domain.ValueObjects;
+namespace BlazingBudget.Domain.Aggregates.Accounts;
 public class PersonName : ValueObject
 {
     public string FirstName { get; private set; }
@@ -11,7 +11,7 @@ public class PersonName : ValueObject
     public string FullName => $"{FirstName} {LastName}";
 
     public static readonly int MaxLength = 300;
-        
+
     private PersonName() { }
 
     [JsonConstructor]

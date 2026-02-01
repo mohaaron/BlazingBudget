@@ -1,6 +1,7 @@
-﻿using CSharpFunctionalExtensions;
+using CSharpFunctionalExtensions;
+using BlazingBudget.Domain.ValueObjects;
 
-namespace BlazingBudget.Domain.ValueObjects;
+namespace BlazingBudget.Domain.Aggregates.Debts;
 /// <summary>
 /// Money owed is an amount of money still left to pay.
 /// </summary>
