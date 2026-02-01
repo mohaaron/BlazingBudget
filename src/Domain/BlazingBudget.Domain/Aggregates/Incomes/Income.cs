@@ -1,7 +1,7 @@
-﻿using BlazingBudget.Domain.Abstractions;
+using BlazingBudget.Domain.Abstractions;
 using BlazingBudget.Domain.ValueObjects;
 
-namespace BlazingBudget.Domain.Aggregates.Budgets;
+namespace BlazingBudget.Domain.Aggregates.Incomes;
 /// <summary>
 /// {BudgetPlan}Income is an entity because the amount of a payment over time affects long term finances.
 /// </summary>

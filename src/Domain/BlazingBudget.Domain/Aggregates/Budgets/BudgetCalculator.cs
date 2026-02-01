@@ -1,3 +1,4 @@
+using BlazingBudget.Domain.Aggregates.Expenses;
 using CSharpFunctionalExtensions;
 
 namespace BlazingBudget.Domain.Aggregates.Budgets

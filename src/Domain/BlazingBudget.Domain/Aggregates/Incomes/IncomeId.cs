@@ -1,6 +1,6 @@
-﻿using StronglyTypedIds;
+using StronglyTypedIds;
 
-namespace BlazingBudget.Domain.Aggregates.Budgets;
+namespace BlazingBudget.Domain.Aggregates.Incomes;
 /// <summary>
 /// Income unique identifier.
 /// </summary>

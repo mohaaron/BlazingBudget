@@ -1,9 +1,6 @@
-﻿using BlazingBudget.Domain.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BlazingBudget.Domain.Aggregates.Expenses;
+using BlazingBudget.Domain.Aggregates.Payments;
+using BlazingBudget.Domain.ValueObjects;
 
 namespace BlazingBudget.Domain.Aggregates.Budgets
 {

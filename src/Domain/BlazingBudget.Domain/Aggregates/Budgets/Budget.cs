@@ -1,4 +1,6 @@
 ﻿using BlazingBudget.Domain.Aggregates.Accounts;
+using BlazingBudget.Domain.Aggregates.Expenses;
+using BlazingBudget.Domain.Aggregates.Incomes;
 
 namespace BlazingBudget.Domain.Aggregates.Budgets;
 public sealed class Budget : Entity<BudgetId>

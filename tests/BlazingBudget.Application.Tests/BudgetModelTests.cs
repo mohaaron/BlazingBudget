@@ -2,6 +2,8 @@ using BlazingBudget.Application.Budgets.UpsertBudgets;
 using BlazingBudget.Application.Mapping;
 using BlazingBudget.Domain.Aggregates.Accounts;
 using BlazingBudget.Domain.Aggregates.Budgets;
+using BlazingBudget.Domain.Aggregates.Expenses;
+using BlazingBudget.Domain.Aggregates.Incomes;
 using BlazingBudget.Domain.ValueObjects;
 using Mapster;
 

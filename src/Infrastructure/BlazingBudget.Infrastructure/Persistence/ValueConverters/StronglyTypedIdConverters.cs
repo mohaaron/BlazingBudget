@@ -1,6 +1,9 @@
 using BlazingBudget.Domain.Aggregates.Accounts;
 using BlazingBudget.Domain.Aggregates.Budgets;
 using BlazingBudget.Domain.Aggregates.Debts;
+using BlazingBudget.Domain.Aggregates.Expenses;
+using BlazingBudget.Domain.Aggregates.Incomes;
+using BlazingBudget.Domain.Aggregates.Payments;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BlazingBudget.Infrastructure.Persistence.ValueConverters;
