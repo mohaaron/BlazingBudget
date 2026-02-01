@@ -1,6 +1,6 @@
 using BlazingBudget.Domain.ValueObjects;
 
-namespace BlazingBudget.Domain.Aggregates.Debts;
+namespace BlazingBudget.Domain.ValueObjects;
 /// <summary>
 /// Money paid is an amount of money paid.
 /// </summary>

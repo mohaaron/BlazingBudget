@@ -1,4 +1,6 @@
-﻿namespace BlazingBudget.Domain.Aggregates.Accounts;
+﻿using BlazingBudget.Domain.ValueObjects;
+
+namespace BlazingBudget.Domain.Aggregates.Accounts;
 public sealed class Account : Entity<AccountId>
 {
 	public PersonName Name { get; private set; }

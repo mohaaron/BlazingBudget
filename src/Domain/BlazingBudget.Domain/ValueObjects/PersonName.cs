@@ -1,6 +1,6 @@
 using CSharpFunctionalExtensions;
 
-namespace BlazingBudget.Domain.Aggregates.Accounts;
+namespace BlazingBudget.Domain.ValueObjects;
 public class PersonName : ValueObject
 {
     public string FirstName { get; private set; }

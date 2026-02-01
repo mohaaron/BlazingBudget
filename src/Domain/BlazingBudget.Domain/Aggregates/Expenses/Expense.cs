@@ -1,7 +1,8 @@
-﻿using BlazingBudget.Domain.Abstractions;
+using BlazingBudget.Domain.Abstractions;
+using BlazingBudget.Domain.Aggregates.Payments;
 using BlazingBudget.Domain.ValueObjects;
 
-namespace BlazingBudget.Domain.Aggregates.Budgets;
+namespace BlazingBudget.Domain.Aggregates.Expenses;
 public class Expense : AuditableEntity<ExpenseId>
 {
 	private Expense() { }

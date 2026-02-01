@@ -1,5 +1,7 @@
 ﻿using BlazingBudget.Domain.Aggregates.Accounts;
 using BlazingBudget.Domain.Aggregates.Budgets;
+using BlazingBudget.Domain.Aggregates.Expenses;
+using BlazingBudget.Domain.Aggregates.Incomes;
 using BlazingBudget.Domain.ValueObjects;
 using BlazingBudget.Infrastructure.Persistence.EntityFramework;
 using BlazingBudget.Infrastructure.Persistence.Extensions;
