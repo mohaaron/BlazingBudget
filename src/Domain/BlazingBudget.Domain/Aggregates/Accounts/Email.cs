@@ -1,7 +1,7 @@
-﻿using CSharpFunctionalExtensions;
+using CSharpFunctionalExtensions;
 using BlazingBudget.Domain.Common;
 
-namespace BlazingBudget.Domain.ValueObjects
+namespace BlazingBudget.Domain.Aggregates.Accounts
 {
     public class Email : ValueObject
     {

@@ -1,12 +1,6 @@
-﻿using BlazingBudget.Domain.Aggregates.Budgets;
 using CSharpFunctionalExtensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BlazingBudget.Domain.Services
+namespace BlazingBudget.Domain.Aggregates.Budgets
 {
     internal class BudgetCalculator
     {

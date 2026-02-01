@@ -1,6 +1,6 @@
-﻿using CSharpFunctionalExtensions;
+using CSharpFunctionalExtensions;
 
-namespace BlazingBudget.Domain.ValueObjects;
+namespace BlazingBudget.Domain.Aggregates.Accounts;
 
     public class Password : ValueObject
     {
