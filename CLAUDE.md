@@ -45,9 +45,32 @@ For every change request, follow this workflow:
    - Push the feature branch to origin
 
 6. **Create a Pull Request**
-   - Create a PR targeting `trunk`
-   - Include a summary of changes and test plan
-   - Provide the PR URL for review
+   - ALWAYS create the PR automatically using the GitHub CLI
+   - Command format: `gh pr create --title "<title>" --body "<description>" --base trunk`
+   - The PR title MUST be a short description of the work being done (keep it concise, under 70 characters)
+   - The PR body must include:
+     - Summary of changes (bullet points preferred)
+     - Test plan or verification steps
+     - Reference to the issue (e.g., "Fixes #123")
+     - Signature: "🤖 Generated with [Claude Code](https://claude.ai/code)"
+   - Use a HEREDOC to pass the body for proper formatting:
+     ```bash
+     gh pr create --title "Short description" --base trunk --body "$(cat <<'EOF'
+     ## Summary
+     - Change 1
+     - Change 2
+
+     ## Test Plan
+     - [x] Build succeeds
+     - [x] Tests pass
+
+     Fixes #123
+
+     🤖 Generated with [Claude Code](https://claude.ai/code)
+     EOF
+     )"
+     ```
+   - Verify the PR was created successfully and return the PR URL for review
 
 ### Workflow Exceptions
 
